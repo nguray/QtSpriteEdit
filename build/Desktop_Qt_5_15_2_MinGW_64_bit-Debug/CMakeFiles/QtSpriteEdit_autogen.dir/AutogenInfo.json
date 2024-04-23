@@ -1,0 +1,215 @@
+{
+	"AUTOGEN_COMMAND_LINE_LENGTH_MAX" : 32000,
+	"BUILD_DIR" : "D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/QtSpriteEdit_autogen",
+	"CMAKE_BINARY_DIR" : "D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/VcQtProjects/QtSpriteEdit",
+	"CMAKE_EXECUTABLE" : "C:/msys64/mingw64/bin/cmake.exe",
+	"CMAKE_LIST_FILES" : 
+	[
+		"D:/VcQtProjects/QtSpriteEdit/CMakeLists.txt",
+		"D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake",
+		"D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/3.29.2/CMakeSystem.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInitialize.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-Initialize.cmake",
+		"D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/3.29.2/CMakeCXXCompiler.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeSystemSpecificInformation.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeGenericSystem.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeInitializeConfigs.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/Platform/Windows.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/Platform/WindowsPaths.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeCXXInformation.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeLanguageInformation.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU-CXX.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/Compiler/GNU.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/Compiler/CMakeCommonCompilerMacros.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU.cmake",
+		"D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/3.29.2/CMakeRCCompiler.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeRCInformation.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-windres.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/Platform/Windows-GNU-CXX-ABI.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeCommonLanguageInclude.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5Config.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5ConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5Config.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5/Qt5ModuleLocation.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfig.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfig.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigVersion.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfig.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigExtras.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreConfigExtrasMkspecDir.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Core/Qt5CoreMacros.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeParseArguments.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QGifPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QICNSPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QICOPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QJpegPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QMinimalIntegrationPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QOffscreenIntegrationPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgIconPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QSvgPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTgaPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTiffPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QTuioTouchPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWbmpPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWebpPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsDirect2DIntegrationPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QWindowsIntegrationPlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5Gui_QXdgDesktopPortalThemePlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Gui/Qt5GuiConfigExtras.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5Widgets_QWindowsVistaStylePlugin.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsConfigExtras.cmake",
+		"C:/Qt/5.15.2/mingw81_64/lib/cmake/Qt5Widgets/Qt5WidgetsMacros.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeParseArguments.cmake",
+		"C:/msys64/mingw64/share/cmake/Modules/GNUInstallDirs.cmake",
+		"D:/VcQtProjects/QtSpriteEdit/qtspriteedit.qrc"
+	],
+	"CMAKE_SOURCE_DIR" : "D:/VcQtProjects/QtSpriteEdit",
+	"CROSS_CONFIG" : false,
+	"DEP_FILE" : "D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/QtSpriteEdit_autogen/deps",
+	"DEP_FILE_RULE_NAME" : "QtSpriteEdit_autogen/timestamp",
+	"HEADERS" : 
+	[
+		[
+			"D:/VcQtProjects/QtSpriteEdit/colorsbar.h",
+			"MU",
+			"EWIEGA46WW/moc_colorsbar.cpp",
+			null
+		],
+		[
+			"D:/VcQtProjects/QtSpriteEdit/editarea.h",
+			"MU",
+			"EWIEGA46WW/moc_editarea.cpp",
+			null
+		],
+		[
+			"D:/VcQtProjects/QtSpriteEdit/editmode.h",
+			"MU",
+			"EWIEGA46WW/moc_editmode.cpp",
+			null
+		],
+		[
+			"D:/VcQtProjects/QtSpriteEdit/editmodeellipse.h",
+			"MU",
+			"EWIEGA46WW/moc_editmodeellipse.cpp",
+			null
+		],
+		[
+			"D:/VcQtProjects/QtSpriteEdit/editmodefill.h",
+			"MU",
+			"EWIEGA46WW/moc_editmodefill.cpp",
+			null
+		],
+		[
+			"D:/VcQtProjects/QtSpriteEdit/editmodepencil.h",
+			"MU",
+			"EWIEGA46WW/moc_editmodepencil.cpp",
+			null
+		],
+		[
+			"D:/VcQtProjects/QtSpriteEdit/editmoderectangle.h",
+			"MU",
+			"EWIEGA46WW/moc_editmoderectangle.cpp",
+			null
+		],
+		[
+			"D:/VcQtProjects/QtSpriteEdit/editmodeselect.h",
+			"MU",
+			"EWIEGA46WW/moc_editmodeselect.cpp",
+			null
+		],
+		[
+			"D:/VcQtProjects/QtSpriteEdit/mainwindow.h",
+			"MU",
+			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"D:/VcQtProjects/QtSpriteEdit/selectrect.h",
+			"MU",
+			"EWIEGA46WW/moc_selectrect.cpp",
+			null
+		],
+		[
+			"D:/VcQtProjects/QtSpriteEdit/spritesbar.h",
+			"MU",
+			"EWIEGA46WW/moc_spritesbar.cpp",
+			null
+		]
+	],
+	"HEADER_EXTENSIONS" : [ "h", "hh", "h++", "hm", "hpp", "hxx", "in", "txx" ],
+	"INCLUDE_DIR" : "D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/QtSpriteEdit_autogen/include",
+	"MOC_COMPILATION_FILE" : "D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/QtSpriteEdit_autogen/mocs_compilation.cpp",
+	"MOC_DEFINITIONS" : [ "QT_CORE_LIB", "QT_GUI_LIB", "QT_WIDGETS_LIB" ],
+	"MOC_DEPEND_FILTERS" : 
+	[
+		[
+			"Q_PLUGIN_METADATA",
+			"[\n][ \t]*Q_PLUGIN_METADATA[ \t]*\\([^\\)]*FILE[ \t]*\"([^\"]+)\""
+		]
+	],
+	"MOC_INCLUDES" : 
+	[
+		"C:/Qt/5.15.2/mingw81_64/include",
+		"C:/Qt/5.15.2/mingw81_64/include/QtWidgets",
+		"C:/Qt/5.15.2/mingw81_64/include/QtGui",
+		"C:/Qt/5.15.2/mingw81_64/include/QtANGLE",
+		"C:/Qt/5.15.2/mingw81_64/include/QtCore",
+		"C:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++",
+		"C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++",
+		"C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/x86_64-w64-mingw32",
+		"C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++/backward",
+		"C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include",
+		"C:/Qt/Tools/mingw810_64/lib/gcc/x86_64-w64-mingw32/8.1.0/include-fixed",
+		"C:/Qt/Tools/mingw810_64/x86_64-w64-mingw32/include"
+	],
+	"MOC_MACRO_NAMES" : [ "Q_OBJECT", "Q_GADGET", "Q_NAMESPACE", "Q_NAMESPACE_EXPORT" ],
+	"MOC_OPTIONS" : [],
+	"MOC_PATH_PREFIX" : false,
+	"MOC_PREDEFS_CMD" : 
+	[
+		"C:/Qt/Tools/mingw810_64/bin/g++.exe",
+		"-std=gnu++17",
+		"-dM",
+		"-E",
+		"-c",
+		"C:/msys64/mingw64/share/cmake/Modules/CMakeCXXCompilerABI.cpp"
+	],
+	"MOC_PREDEFS_FILE" : "D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/QtSpriteEdit_autogen/moc_predefs.h",
+	"MOC_RELAXED_MODE" : false,
+	"MOC_SKIP" : [],
+	"MULTI_CONFIG" : false,
+	"PARALLEL" : 8,
+	"PARSE_CACHE_FILE" : "D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/QtSpriteEdit_autogen.dir/ParseCache.txt",
+	"QT_MOC_EXECUTABLE" : "C:/Qt/5.15.2/mingw81_64/bin/moc.exe",
+	"QT_UIC_EXECUTABLE" : "C:/Qt/5.15.2/mingw81_64/bin/uic.exe",
+	"QT_VERSION_MAJOR" : 5,
+	"QT_VERSION_MINOR" : 15,
+	"SETTINGS_FILE" : "D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/QtSpriteEdit_autogen.dir/AutogenUsed.txt",
+	"SOURCES" : 
+	[
+		[ "D:/VcQtProjects/QtSpriteEdit/colorsbar.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/editarea.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/editmode.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/editmodeellipse.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/editmodefill.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/editmodepencil.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/editmoderectangle.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/editmodeselect.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/main.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/mainwindow.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/selectrect.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/spritesbar.cpp", "MU", null ]
+	],
+	"UIC_OPTIONS" : [],
+	"UIC_SEARCH_PATHS" : [],
+	"UIC_SKIP" : [],
+	"UIC_UI_FILES" : [],
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}

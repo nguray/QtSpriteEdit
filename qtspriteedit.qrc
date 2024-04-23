@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/EllipseIcon.png</file>
+        <file>res/FlipHorizontalyIcon.png</file>
+        <file>res/FlipVerticalyIcon.png</file>
+        <file>res/FloodFillIcon.png</file>
+        <file>res/PauseToolIcon.png</file>
+        <file>res/PencilIcon.png</file>
+        <file>res/PickColor.png</file>
+        <file>res/PlayToolIcon.png</file>
+        <file>res/RectangleIcon.png</file>
+        <file>res/SelectBoxIcon.png</file>
+        <file>res/Swing90LeftIcon.png</file>
+        <file>res/Swing90RightIcon.png</file>
+    </qresource>
+</RCC>
