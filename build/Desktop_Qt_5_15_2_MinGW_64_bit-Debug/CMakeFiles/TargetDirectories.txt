@@ -1,9 +1,0 @@
-D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/QtSpriteEdit.dir
-D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
-D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
-D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
-D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/install.dir
-D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
-D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
-D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/QtSpriteEdit_autogen_timestamp_deps.dir
-D:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/CMakeFiles/QtSpriteEdit_autogen.dir
