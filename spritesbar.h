@@ -28,6 +28,7 @@ public:
     int     mouseToIndex(QPoint pt);
     QImage* getSelectedSprite();
     QString getSelectedSpriteFileName();
+    void    newImage(int imgWidth, int imgHeight);
     void    openImage(QString fileName);
     void    saveImage();
     void    saveAsImage(const QString fileName, const char *fileFormat);

@@ -48,6 +48,7 @@ else()
             editmodeellipse.h editmodeellipse.cpp
             editmodefill.h editmodefill.cpp
             qtspriteedit.qrc
+            newspritedlg.h newspritedlg.cpp
         )
     endif()
 endif()

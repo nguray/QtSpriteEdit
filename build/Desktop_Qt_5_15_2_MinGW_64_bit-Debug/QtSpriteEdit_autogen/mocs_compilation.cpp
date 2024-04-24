@@ -2,4 +2,5 @@
 #include "EWIEGA46WW/moc_colorsbar.cpp"
 #include "EWIEGA46WW/moc_editarea.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
+#include "EWIEGA46WW/moc_newspritedlg.cpp"
 #include "EWIEGA46WW/moc_spritesbar.cpp"

@@ -26,6 +26,7 @@ public:
     //QLabel      *m_status_msg;
 
     void        uncheckAllToolBarButtons();
+    void        newSprite();
     void        open();
     void        save();
     void        saveAs();
@@ -61,10 +62,7 @@ private:
     QAction *copyAct;
     QAction *pasteAct;
 
-    QAction *penColorAct;
-    QAction *penWidthAct;
     QAction *printAct;
-    QAction *clearScreenAct;
     QAction *aboutAct;
     QAction *aboutQtAct;
 

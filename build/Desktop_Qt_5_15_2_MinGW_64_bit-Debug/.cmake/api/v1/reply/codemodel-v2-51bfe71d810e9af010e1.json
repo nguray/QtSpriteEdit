@@ -7,7 +7,7 @@
 				{
 					"build" : ".",
 					"hasInstallRule" : true,
-					"jsonFile" : "directory-.-Debug-eb7c8229126162912718.json",
+					"jsonFile" : "directory-.-Debug-c9d365510b5e3a341d12.json",
 					"minimumCMakeVersion" : 
 					{
 						"string" : "3.5"
@@ -44,7 +44,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "QtSpriteEdit::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-QtSpriteEdit-Debug-7ed951e3c093f675374f.json",
+					"jsonFile" : "target-QtSpriteEdit-Debug-9e2f6a5575914ebf0b99.json",
 					"name" : "QtSpriteEdit",
 					"projectIndex" : 0
 				},

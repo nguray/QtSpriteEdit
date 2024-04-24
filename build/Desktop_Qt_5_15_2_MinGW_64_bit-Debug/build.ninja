@@ -153,6 +153,14 @@ build CMakeFiles/QtSpriteEdit.dir/editmodefill.cpp.obj: CXX_COMPILER__QtSpriteEd
   OBJECT_DIR = CMakeFiles\QtSpriteEdit.dir
   OBJECT_FILE_DIR = CMakeFiles\QtSpriteEdit.dir
 
+build CMakeFiles/QtSpriteEdit.dir/newspritedlg.cpp.obj: CXX_COMPILER__QtSpriteEdit_unscanned_Debug D$:/VcQtProjects/QtSpriteEdit/newspritedlg.cpp || cmake_object_order_depends_target_QtSpriteEdit
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles\QtSpriteEdit.dir\newspritedlg.cpp.obj.d
+  FLAGS = -DQT_QML_DEBUG -g -std=gnu++17 -fdiagnostics-color=always
+  INCLUDES = -ID:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/QtSpriteEdit_autogen/include -isystem C:/Qt/5.15.2/mingw81_64/include -isystem C:/Qt/5.15.2/mingw81_64/include/QtWidgets -isystem C:/Qt/5.15.2/mingw81_64/include/QtGui -isystem C:/Qt/5.15.2/mingw81_64/include/QtANGLE -isystem C:/Qt/5.15.2/mingw81_64/include/QtCore -isystem C:/Qt/5.15.2/mingw81_64/./mkspecs/win32-g++
+  OBJECT_DIR = CMakeFiles\QtSpriteEdit.dir
+  OBJECT_FILE_DIR = CMakeFiles\QtSpriteEdit.dir
+
 build CMakeFiles/QtSpriteEdit.dir/QtSpriteEdit_autogen/EWIEGA46WW/qrc_qtspriteedit.cpp.obj: CXX_COMPILER__QtSpriteEdit_unscanned_Debug D$:/VcQtProjects/QtSpriteEdit/build/Desktop_Qt_5_15_2_MinGW_64_bit-Debug/QtSpriteEdit_autogen/EWIEGA46WW/qrc_qtspriteedit.cpp || cmake_object_order_depends_target_QtSpriteEdit
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles\QtSpriteEdit.dir\QtSpriteEdit_autogen\EWIEGA46WW\qrc_qtspriteedit.cpp.obj.d
@@ -169,7 +177,7 @@ build CMakeFiles/QtSpriteEdit.dir/QtSpriteEdit_autogen/EWIEGA46WW/qrc_qtspriteed
 #############################################
 # Link the executable QtSpriteEdit.exe
 
-build QtSpriteEdit.exe: CXX_EXECUTABLE_LINKER__QtSpriteEdit_Debug CMakeFiles/QtSpriteEdit.dir/QtSpriteEdit_autogen/mocs_compilation.cpp.obj CMakeFiles/QtSpriteEdit.dir/main.cpp.obj CMakeFiles/QtSpriteEdit.dir/mainwindow.cpp.obj CMakeFiles/QtSpriteEdit.dir/editarea.cpp.obj CMakeFiles/QtSpriteEdit.dir/spritesbar.cpp.obj CMakeFiles/QtSpriteEdit.dir/colorsbar.cpp.obj CMakeFiles/QtSpriteEdit.dir/selectrect.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmode.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmodeselect.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmodepencil.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmoderectangle.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmodeellipse.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmodefill.cpp.obj CMakeFiles/QtSpriteEdit.dir/QtSpriteEdit_autogen/EWIEGA46WW/qrc_qtspriteedit.cpp.obj | C$:/Qt/5.15.2/mingw81_64/lib/libQt5Widgets.a C$:/Qt/5.15.2/mingw81_64/lib/libQt5Gui.a C$:/Qt/5.15.2/mingw81_64/lib/libQt5Core.a C$:/Qt/5.15.2/mingw81_64/lib/libqtmain.a || QtSpriteEdit_autogen QtSpriteEdit_autogen_timestamp_deps
+build QtSpriteEdit.exe: CXX_EXECUTABLE_LINKER__QtSpriteEdit_Debug CMakeFiles/QtSpriteEdit.dir/QtSpriteEdit_autogen/mocs_compilation.cpp.obj CMakeFiles/QtSpriteEdit.dir/main.cpp.obj CMakeFiles/QtSpriteEdit.dir/mainwindow.cpp.obj CMakeFiles/QtSpriteEdit.dir/editarea.cpp.obj CMakeFiles/QtSpriteEdit.dir/spritesbar.cpp.obj CMakeFiles/QtSpriteEdit.dir/colorsbar.cpp.obj CMakeFiles/QtSpriteEdit.dir/selectrect.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmode.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmodeselect.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmodepencil.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmoderectangle.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmodeellipse.cpp.obj CMakeFiles/QtSpriteEdit.dir/editmodefill.cpp.obj CMakeFiles/QtSpriteEdit.dir/newspritedlg.cpp.obj CMakeFiles/QtSpriteEdit.dir/QtSpriteEdit_autogen/EWIEGA46WW/qrc_qtspriteedit.cpp.obj | C$:/Qt/5.15.2/mingw81_64/lib/libQt5Widgets.a C$:/Qt/5.15.2/mingw81_64/lib/libQt5Gui.a C$:/Qt/5.15.2/mingw81_64/lib/libQt5Core.a C$:/Qt/5.15.2/mingw81_64/lib/libqtmain.a || QtSpriteEdit_autogen QtSpriteEdit_autogen_timestamp_deps
   FLAGS = -DQT_QML_DEBUG -g
   LINK_FLAGS = -mwindows
   LINK_LIBRARIES = C:/Qt/5.15.2/mingw81_64/lib/libQt5Widgets.a  C:/Qt/5.15.2/mingw81_64/lib/libQt5Gui.a  C:/Qt/5.15.2/mingw81_64/lib/libQt5Core.a  C:/Qt/5.15.2/mingw81_64/lib/libqtmain.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32

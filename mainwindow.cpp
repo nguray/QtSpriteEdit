@@ -7,6 +7,7 @@
 #include <QFileDialog>
 #include <QStatusBar>
 #include <QString>
+#include "newspritedlg.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -128,8 +129,19 @@ void MainWindow::doPaste()
     m_editarea->pasteSelectBox();
 }
 
+void MainWindow::newSprite()
+{
+    //-----------------------------------------
+    NewSpriteDlg dlg(this);
+    auto result = dlg.exec();
+    if (result==QDialog::Accepted){
+        m_spritesbar->newImage(dlg.m_width,dlg.m_height);
+    }
+}
+
 void MainWindow::open()
 {
+    //-----------------------------------------
     QString fileName = QFileDialog::getOpenFileName(this,
                                                     tr("Open File"), QDir::currentPath());
     if (!fileName.isEmpty())
@@ -188,6 +200,7 @@ void MainWindow::createActions()
 
     newAct = new QAction(tr("&New..."), this);
     newAct->setShortcuts(QKeySequence::New);
+    connect(newAct, &QAction::triggered, this, &MainWindow::newSprite);
 
     openAct = new QAction(tr("&Open..."), this);
     openAct->setShortcuts(QKeySequence::Open);
@@ -201,24 +214,12 @@ void MainWindow::createActions()
     saveAsAct->setShortcuts(QKeySequence::SaveAs);
     connect(saveAsAct, &QAction::triggered, this, &MainWindow::saveAs);
 
-/*
-    const QList<QByteArray> imageFormats = QImageWriter::supportedImageFormats();
-    for (const QByteArray &format : imageFormats) {
-        QString text = tr("%1...").arg(QString::fromLatin1(format).toUpper());
-
-        QAction *action = new QAction(text, this);
-        action->setData(format);
-        connect(action, &QAction::triggered, this, &MainWindow::save);
-        saveAsActs.append(action);
-    }
-*/
     printAct = new QAction(tr("&Print..."), this);
     //connect(printAct, &QAction::triggered, scribbleArea, &ScribbleArea::print);
 
     exitAct = new QAction(tr("E&xit"), this);
     exitAct->setShortcuts(QKeySequence::Quit);
     connect(exitAct, &QAction::triggered, this, &MainWindow::close);
-
 
     undoAct = new QAction(tr("Undo"), this);
     undoAct->setShortcuts(QKeySequence::Undo);
@@ -235,17 +236,6 @@ void MainWindow::createActions()
     pasteAct = new QAction(tr("Paste"), this);
     pasteAct->setShortcuts(QKeySequence::Paste);
     connect(pasteAct, &QAction::triggered, this, &MainWindow::doPaste);
-
-    penColorAct = new QAction(tr("&Pen Color..."), this);
-    //connect(penColorAct, &QAction::triggered, this, &MainWindow::penColor);
-
-    penWidthAct = new QAction(tr("Pen &Width..."), this);
-    //connect(penWidthAct, &QAction::triggered, this, &MainWindow::penWidth);
-
-    clearScreenAct = new QAction(tr("&Clear Screen"), this);
-    clearScreenAct->setShortcut(tr("Ctrl+L"));
-    //connect(clearScreenAct, &QAction::triggered,
-    //        scribbleArea, &ScribbleArea::clearImage);
 
     aboutAct = new QAction(tr("&About"), this);
     //connect(aboutAct, &QAction::triggered, this, &MainWindow::about);

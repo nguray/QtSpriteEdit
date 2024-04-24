@@ -44,13 +44,13 @@
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 72,
+				"line" : 73,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 55,
+				"line" : 56,
 				"parent" : 0
 			},
 			{
@@ -208,18 +208,19 @@
 				19,
 				21,
 				23,
-				26
+				26,
+				28
 			]
 		}
 	],
 	"dependencies" : 
 	[
 		{
-			"id" : "QtSpriteEdit_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
-		},
-		{
 			"backtrace" : 0,
 			"id" : "QtSpriteEdit_autogen::@6890427a1f51a3e7e1df"
+		},
+		{
+			"id" : "QtSpriteEdit_autogen_timestamp_deps::@6890427a1f51a3e7e1df"
 		}
 	],
 	"id" : "QtSpriteEdit::@6890427a1f51a3e7e1df",
@@ -302,7 +303,8 @@
 				19,
 				21,
 				23,
-				26
+				26,
+				28
 			]
 		},
 		{
@@ -319,7 +321,8 @@
 				16,
 				18,
 				20,
-				22
+				22,
+				25
 			]
 		},
 		{
@@ -327,15 +330,15 @@
 			"sourceIndexes" : 
 			[
 				24,
-				25
+				27
 			]
 		},
 		{
 			"name" : "CMake Rules",
 			"sourceIndexes" : 
 			[
-				27,
-				28
+				29,
+				30
 			]
 		}
 	],
@@ -479,6 +482,17 @@
 			"backtrace" : 1,
 			"path" : "qtspriteedit.qrc",
 			"sourceGroupIndex" : 2
+		},
+		{
+			"backtrace" : 1,
+			"path" : "newspritedlg.h",
+			"sourceGroupIndex" : 1
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "newspritedlg.cpp",
+			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 0,

@@ -82,22 +82,31 @@ QtSpriteEdit_autogen/timestamp: \
 	C:/Qt/5.15.2/mingw81_64/include/QtGui/qregion.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtGui/qrgb.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtGui/qrgba64.h \
+	C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextcursor.h \
+	C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextformat.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtGui/qtextoption.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtGui/qtgui-config.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtGui/qtguiglobal.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtGui/qtransform.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtGui/qwindowdefs.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtGui/qwindowdefs_win.h \
+	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QDialog \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLabel \
+	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QLineEdit \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QMainWindow \
+	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QPushButton \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QStatusBar \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QToolBar \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/QWidget \
+	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qabstractbutton.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qaction.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qactiongroup.h \
+	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qdialog.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qframe.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlabel.h \
+	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qlineedit.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qmainwindow.h \
+	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qpushbutton.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qsizepolicy.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qstatusbar.h \
 	C:/Qt/5.15.2/mingw81_64/include/QtWidgets/qtabwidget.h \
@@ -362,6 +371,8 @@ QtSpriteEdit_autogen/timestamp: \
 	D:/VcQtProjects/QtSpriteEdit/main.cpp \
 	D:/VcQtProjects/QtSpriteEdit/mainwindow.cpp \
 	D:/VcQtProjects/QtSpriteEdit/mainwindow.h \
+	D:/VcQtProjects/QtSpriteEdit/newspritedlg.cpp \
+	D:/VcQtProjects/QtSpriteEdit/newspritedlg.h \
 	D:/VcQtProjects/QtSpriteEdit/qtspriteedit.qrc \
 	D:/VcQtProjects/QtSpriteEdit/selectrect.cpp \
 	D:/VcQtProjects/QtSpriteEdit/selectrect.h \

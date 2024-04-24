@@ -130,6 +130,12 @@
 			null
 		],
 		[
+			"D:/VcQtProjects/QtSpriteEdit/newspritedlg.h",
+			"MU",
+			"EWIEGA46WW/moc_newspritedlg.cpp",
+			null
+		],
+		[
 			"D:/VcQtProjects/QtSpriteEdit/selectrect.h",
 			"MU",
 			"EWIEGA46WW/moc_selectrect.cpp",
@@ -203,6 +209,7 @@
 		[ "D:/VcQtProjects/QtSpriteEdit/editmodeselect.cpp", "MU", null ],
 		[ "D:/VcQtProjects/QtSpriteEdit/main.cpp", "MU", null ],
 		[ "D:/VcQtProjects/QtSpriteEdit/mainwindow.cpp", "MU", null ],
+		[ "D:/VcQtProjects/QtSpriteEdit/newspritedlg.cpp", "MU", null ],
 		[ "D:/VcQtProjects/QtSpriteEdit/selectrect.cpp", "MU", null ],
 		[ "D:/VcQtProjects/QtSpriteEdit/spritesbar.cpp", "MU", null ]
 	],
