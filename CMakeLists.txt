@@ -16,6 +16,17 @@ set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
         mainwindow.h
+        editarea.h editarea.cpp
+        spritesbar.h spritesbar.cpp
+        colorsbar.h colorsbar.cpp
+        selectrect.h selectrect.cpp
+        editmode.h editmode.cpp
+        editmodeselect.h editmodeselect.cpp
+        editmodepencil.h editmodepencil.cpp
+        editmoderectangle.h editmoderectangle.cpp
+        editmodeellipse.h editmodeellipse.cpp
+        editmodefill.h editmodefill.cpp
+        newspritedlg.h newspritedlg.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
@@ -37,18 +48,7 @@ else()
     else()
         add_executable(QtSpriteEdit
             ${PROJECT_SOURCES}
-            editarea.h editarea.cpp
-            spritesbar.h spritesbar.cpp
-            colorsbar.h colorsbar.cpp
-            selectrect.h selectrect.cpp
-            editmode.h editmode.cpp
-            editmodeselect.h editmodeselect.cpp
-            editmodepencil.h editmodepencil.cpp
-            editmoderectangle.h editmoderectangle.cpp
-            editmodeellipse.h editmodeellipse.cpp
-            editmodefill.h editmodefill.cpp
             qtspriteedit.qrc
-            newspritedlg.h newspritedlg.cpp
         )
     endif()
 endif()
