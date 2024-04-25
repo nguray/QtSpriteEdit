@@ -3,6 +3,7 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QPushButton>
+#include <QGroupBox>
 #include <QFontMetrics>
 
 NewSpriteDlg::NewSpriteDlg(QWidget *parent): QDialog{parent}
@@ -11,7 +12,17 @@ NewSpriteDlg::NewSpriteDlg(QWidget *parent): QDialog{parent}
     setMinimumWidth(200);
     setMinimumHeight(128);
 
-    QFrame *sizeFrame = new QFrame(this);
+    QFontMetrics fm = fontMetrics();
+    QRect rect1 = fm.boundingRect("Width");
+    QRect rect2 = fm.boundingRect("Height");
+    int labelWidth;
+    if (rect1.width()>rect2.width()){
+        labelWidth = rect1.width()+10;
+    }else{
+        labelWidth = rect2.width()+10;
+    }
+
+    QGroupBox *imageFrame = new QGroupBox("Image",this);
 
     QVBoxLayout * vBoxLayout = new QVBoxLayout(this);
     QVBoxLayout * vBoxLayout1 = new QVBoxLayout(this);
@@ -19,7 +30,7 @@ NewSpriteDlg::NewSpriteDlg(QWidget *parent): QDialog{parent}
     QHBoxLayout * hBoxLayout1 = new QHBoxLayout(this);
     QLabel * widthLabel = new QLabel(this);
     widthLabel->setText("Width");
-    widthLabel->setMinimumWidth(50);
+    widthLabel->setMinimumWidth(labelWidth);
     m_widthEdit = new QLineEdit("32");
     m_widthEdit->setAlignment(Qt::AlignRight);
     m_widthEdit->setMaxLength(4);
@@ -32,7 +43,7 @@ NewSpriteDlg::NewSpriteDlg(QWidget *parent): QDialog{parent}
     QHBoxLayout * hBoxLayout2 = new QHBoxLayout(this);
     QLabel *heightLabel = new QLabel(this);
     heightLabel->setText("Height");
-    heightLabel->setMinimumWidth(50);
+    heightLabel->setMinimumWidth(labelWidth);
     m_heightEdit = new QLineEdit("32");
     m_heightEdit->setAlignment(Qt::AlignRight);
     m_heightEdit->setMaxLength(4);
@@ -42,19 +53,14 @@ NewSpriteDlg::NewSpriteDlg(QWidget *parent): QDialog{parent}
     hBoxLayout2->addWidget(m_heightEdit,0,Qt::AlignRight);
     hBoxLayout2->addStretch();
 
-    QFontMetrics fm = fontMetrics();
-    QRect rect1 = fm.boundingRect("Width");
-    QRect rect2 = fm.boundingRect("Height");
 
 
     vBoxLayout1->addLayout(hBoxLayout1);
     vBoxLayout1->addLayout(hBoxLayout2);
     vBoxLayout1->addStretch();
 
-    sizeFrame->setFrameStyle(QFrame::Box | QFrame::Raised);
-    sizeFrame->setFrameShadow(QFrame::Sunken);
-    //sizeFrame->setLineWidth(3);
-    sizeFrame->setLayout(vBoxLayout1);
+    imageFrame->setAlignment(Qt::AlignLeft|Qt::AlignVCenter);
+    imageFrame->setLayout(vBoxLayout1);
 
     QHBoxLayout * hBoxLayout3 = new QHBoxLayout(this);
     m_okBtn = new QPushButton("Ok",this);
@@ -64,14 +70,14 @@ NewSpriteDlg::NewSpriteDlg(QWidget *parent): QDialog{parent}
     hBoxLayout3->addWidget(m_cancelBtn,0,Qt::AlignRight);
     hBoxLayout3->addStretch();
 
-    vBoxLayout->addWidget(sizeFrame);
+    vBoxLayout->addWidget(imageFrame);
     vBoxLayout->addLayout(hBoxLayout3);
 
     connect(m_okBtn, &QPushButton::pressed, this, &NewSpriteDlg::okBtnClick);
     connect(m_cancelBtn, &QPushButton::pressed, this, &NewSpriteDlg::cancelBtnClick);
 
     setLayout(vBoxLayout);
-    setWindowTitle("Image sizes");
+    setWindowTitle(tr("New Sprite"));
 
 }
 
