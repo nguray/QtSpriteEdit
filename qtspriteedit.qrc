@@ -12,5 +12,7 @@
         <file>res/SelectBoxIcon.png</file>
         <file>res/Swing90LeftIcon.png</file>
         <file>res/Swing90RightIcon.png</file>
+        <file>res/document-new-symbolic.svg</file>
+        <file>res/application-exit-symbolic.svg</file>
     </qresource>
 </RCC>

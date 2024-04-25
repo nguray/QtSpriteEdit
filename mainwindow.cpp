@@ -1,5 +1,7 @@
 
 #include "mainwindow.h"
+#include <QStyle>
+#include <QIcon>
 #include <QMenu>
 #include <QMenuBar>
 #include <QHBoxLayout>
@@ -197,8 +199,12 @@ void MainWindow::createToolBar()
 
 void MainWindow::createActions()
 {
+    //QIcon undoicon = QIcon::fromTheme("edit-undo");
+    //QIcon undoicon = QIcon::fromTheme("edit-undo", QIcon(":/res/SelectBoxIcon.png"));
+    //QIcon newicon = QIcon::fromTheme("edit-undo", QIcon(":res/document-new-symbolic.svg"));
+    //this->style()->standardIcon(QStyle::SP_TrashIcon);
 
-    newAct = new QAction(tr("&New..."), this);
+    newAct = new QAction(QIcon::fromTheme("edit-undo", QIcon(":res/document-new-symbolic.svg")),tr("&New..."), this);
     newAct->setShortcuts(QKeySequence::New);
     connect(newAct, &QAction::triggered, this, &MainWindow::newSprite);
 
@@ -217,7 +223,8 @@ void MainWindow::createActions()
     printAct = new QAction(tr("&Print..."), this);
     //connect(printAct, &QAction::triggered, scribbleArea, &ScribbleArea::print);
 
-    exitAct = new QAction(tr("E&xit"), this);
+
+    exitAct = new QAction(QIcon::fromTheme("edit-undo", QIcon(":res/application-exit-symbolic.svg")),tr("E&xit"), this);
     exitAct->setShortcuts(QKeySequence::Quit);
     connect(exitAct, &QAction::triggered, this, &MainWindow::close);
 
