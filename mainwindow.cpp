@@ -1,4 +1,4 @@
-
+#include <QApplication>
 #include "mainwindow.h"
 #include <QStyle>
 #include <QIcon>
@@ -10,9 +10,10 @@
 #include <QStatusBar>
 #include <QString>
 #include "newspritedlg.h"
+#include "aboutdlg.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
+    : QMainWindow{parent}
 {
 
 
@@ -86,6 +87,12 @@ void MainWindow::uncheckAllToolBarButtons()
 }
 
 void MainWindow::setSelectMode()
+/*---------------------------------------------------------*\
+ * Switch Editarea widget to <Box Select mode>
+ * and update toolbar buttons
+ *
+ * 2024-04-21                       Raymond NGUYEN THANH
+\*---------------------------------------------------------*/
 {
     uncheckAllToolBarButtons();
     selectModeAct->setChecked(true);
@@ -94,6 +101,12 @@ void MainWindow::setSelectMode()
 }
 
 void MainWindow::setPencilMode()
+/*---------------------------------------------------------*\
+ * Switch Editarea widget to <Pencil draw mode>
+ * and update toolbar buttons
+ *
+ * 2024-04-21                       Raymond NGUYEN THANH
+\*---------------------------------------------------------*/
 {
     uncheckAllToolBarButtons();
     pencilModeAct->setChecked(true);
@@ -102,6 +115,12 @@ void MainWindow::setPencilMode()
 }
 
 void MainWindow::setRectangleMode()
+/*---------------------------------------------------------*\
+ * Switch Editarea widget to <Rectangle draw mode>
+ * and update toolbar buttons
+ *
+ * 2024-04-21                       Raymond NGUYEN THANH
+\*---------------------------------------------------------*/
 {
     uncheckAllToolBarButtons();
     rectangleModeAct->setChecked(true);
@@ -110,6 +129,12 @@ void MainWindow::setRectangleMode()
 }
 
 void MainWindow::setEllipseMode()
+/*---------------------------------------------------------*\
+ * Switch Editarea widget to <Ellipse draw mode>
+ * and update toolbar buttons
+ *
+ * 2024-04-21                       Raymond NGUYEN THANH
+\*---------------------------------------------------------*/
 {
     uncheckAllToolBarButtons();
     ellipseModeAct->setChecked(true);
@@ -118,6 +143,12 @@ void MainWindow::setEllipseMode()
 }
 
 void MainWindow::setFillMode()
+/*---------------------------------------------------------*\
+ * Switch Editarea widget to <Flood fill mode>
+ * and update toolbar buttons
+ *
+ * 2024-04-21                       Raymond NGUYEN THANH
+\*---------------------------------------------------------*/
 {
     uncheckAllToolBarButtons();
     fillModeAct->setChecked(true);
@@ -126,6 +157,11 @@ void MainWindow::setFillMode()
 }
 
 void MainWindow::doPaste()
+/*---------------------------------------------------------*\
+ * Paste a copied image into the current sprite
+ *
+ * 2024-04-21                       Raymond NGUYEN THANH
+\*---------------------------------------------------------*/
 {
     setSelectMode();
     m_editarea->pasteSelectBox();
@@ -162,9 +198,9 @@ void MainWindow::save()
     }
 }
 
-
 void MainWindow::saveAs()
 {
+    //-----------------------------------------
     QString fileFormat = "png";
     QString initialPath = QDir::currentPath() + "/untitled." + fileFormat;
 
@@ -176,6 +212,14 @@ void MainWindow::saveAs()
     if (!fileName.isEmpty()){
         m_spritesbar->saveAsImage(fileName,fileFormat.toLatin1());
     }
+
+}
+
+void MainWindow::about()
+{
+    //-----------------------------------------
+    AboutDlg dlg(this);
+    auto result = dlg.exec();
 
 }
 
@@ -245,10 +289,10 @@ void MainWindow::createActions()
     connect(pasteAct, &QAction::triggered, this, &MainWindow::doPaste);
 
     aboutAct = new QAction(tr("&About"), this);
-    //connect(aboutAct, &QAction::triggered, this, &MainWindow::about);
+    connect(aboutAct, &QAction::triggered, this, &MainWindow::about);
 
     aboutQtAct = new QAction(tr("About &Qt"), this);
-    //connect(aboutQtAct, &QAction::triggered, qApp, &QApplication::aboutQt);
+    connect(aboutQtAct, &QAction::triggered, qApp, &QApplication::aboutQt);
 
     selectModeAct = new QAction(QIcon(":/res/SelectBoxIcon.png"),"Select",this);
     selectModeAct->setCheckable(true);
@@ -294,18 +338,11 @@ void MainWindow::createMenus()
     editMenu->addAction(pasteAct);
 
 
-    // optionMenu = new QMenu(tr("&Options"), this);
-    // optionMenu->addAction(penColorAct);
-    // optionMenu->addAction(penWidthAct);
-    // optionMenu->addSeparator();
-    // optionMenu->addAction(clearScreenAct);
-
     helpMenu = new QMenu(tr("&Help"), this);
     helpMenu->addAction(aboutAct);
     helpMenu->addAction(aboutQtAct);
 
     menuBar()->addMenu(fileMenu);
     menuBar()->addMenu(editMenu);
-    //menuBar()->addMenu(optionMenu);
     menuBar()->addMenu(helpMenu);
 }

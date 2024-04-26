@@ -30,6 +30,8 @@ public:
     void        open();
     void        save();
     void        saveAs();
+    void        about();
+
 
 private slots:
     void setSelectMode();

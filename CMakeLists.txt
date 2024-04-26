@@ -49,6 +49,7 @@ else()
         add_executable(QtSpriteEdit
             ${PROJECT_SOURCES}
             qtspriteedit.qrc
+            aboutdlg.h aboutdlg.cpp
         )
     endif()
 endif()

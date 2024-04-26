@@ -73,21 +73,27 @@ bool EditModePencil::mouseMoveEvent(QWidget *w,QMouseEvent *event)
         if (m_image){
             if (QApplication::keyboardModifiers() && Qt::ControlModifier){
                 if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
-                    restore();
-                    QPainter p(m_image);
-                    p.setRenderHint(QPainter::Antialiasing, false);
-                    p.setPen(m_foreGroundColor);
-                    p.drawLine( m_start_x, m_start_y, pixelX, pixelY);
-                    p.end();
-                    emit ((editarea *) w)->editSpriteChanged();
-                    w->update();
+                    if ((pixelX!=m_start_x)||(pixelY!=m_start_y)){
+                        restore();
+                        QPainter p(m_image);
+                        p.setRenderHint(QPainter::Antialiasing, false);
+                        p.setPen(m_foreGroundColor);
+                        p.drawLine( m_start_x, m_start_y, pixelX, pixelY);
+                        p.end();
+                        emit ((editarea *) w)->editSpriteChanged();
+                        w->update();
+                    }
                 }
             }else{
                 if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
-                    m_image->setPixelColor( pixelX, pixelY, m_foreGroundColor);
-                    emit ((editarea *) w)->editSpriteChanged();
-                    w->update();
-                    return true;
+                    if ((pixelX!=m_start_x)||(pixelY!=m_start_y)){
+                        m_start_x = pixelX;
+                        m_start_y = pixelY;
+                        m_image->setPixelColor( pixelX, pixelY, m_foreGroundColor);
+                        emit ((editarea *) w)->editSpriteChanged();
+                        w->update();
+                        return true;
+                    }
                 }
             }
         }
