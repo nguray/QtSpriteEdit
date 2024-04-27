@@ -53,8 +53,6 @@ NewSpriteDlg::NewSpriteDlg(QWidget *parent): QDialog{parent}
     hBoxLayout2->addWidget(m_heightEdit,0,Qt::AlignRight);
     hBoxLayout2->addStretch();
 
-
-
     vBoxLayout1->addLayout(hBoxLayout1);
     vBoxLayout1->addLayout(hBoxLayout2);
     vBoxLayout1->addStretch();

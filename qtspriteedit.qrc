@@ -14,5 +14,14 @@
         <file>res/Swing90RightIcon.png</file>
         <file>res/document-new-symbolic.svg</file>
         <file>res/application-exit-symbolic.svg</file>
+        <file>res/document-open-symbolic.svg</file>
+        <file>res/document-print-symbolic.svg</file>
+        <file>res/document-save-as-symbolic.svg</file>
+        <file>res/document-save-symbolic.svg</file>
+        <file>res/edit-copy-symbolic.svg</file>
+        <file>res/edit-cut-symbolic.svg</file>
+        <file>res/edit-paste-symbolic.svg</file>
+        <file>res/edit-undo-symbolic.svg</file>
+        <file>res/help-about-symbolic.svg</file>
     </qresource>
 </RCC>

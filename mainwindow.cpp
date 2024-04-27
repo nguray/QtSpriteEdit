@@ -248,47 +248,47 @@ void MainWindow::createActions()
     //QIcon newicon = QIcon::fromTheme("edit-undo", QIcon(":res/document-new-symbolic.svg"));
     //this->style()->standardIcon(QStyle::SP_TrashIcon);
 
-    newAct = new QAction(QIcon::fromTheme("edit-undo", QIcon(":res/document-new-symbolic.svg")),tr("&New..."), this);
+    newAct = new QAction(QIcon::fromTheme("document-new", QIcon(":res/document-new-symbolic.svg")),tr("&New..."), this);
     newAct->setShortcuts(QKeySequence::New);
     connect(newAct, &QAction::triggered, this, &MainWindow::newSprite);
 
-    openAct = new QAction(tr("&Open..."), this);
+    openAct = new QAction(QIcon(":res/document-open-symbolic.svg"),tr("&Open..."), this);
     openAct->setShortcuts(QKeySequence::Open);
     connect(openAct, &QAction::triggered, this, &MainWindow::open);
 
-    saveAct = new QAction(tr("Save"), this);
+    saveAct = new QAction(QIcon(":res/document-save-symbolic.svg"),tr("Save"), this);
     saveAct->setShortcuts(QKeySequence::Save);
     connect(saveAct, &QAction::triggered, this, &MainWindow::save);
 
-    saveAsAct = new QAction(tr("Save As..."), this);
+    saveAsAct = new QAction(QIcon(":res/document-save-as-symbolic.svg"),tr("Save As..."), this);
     saveAsAct->setShortcuts(QKeySequence::SaveAs);
     connect(saveAsAct, &QAction::triggered, this, &MainWindow::saveAs);
 
-    printAct = new QAction(tr("&Print..."), this);
+    printAct = new QAction(QIcon(":res/document-print-symbolic.svg"),tr("&Print..."), this);
     //connect(printAct, &QAction::triggered, scribbleArea, &ScribbleArea::print);
 
 
-    exitAct = new QAction(QIcon::fromTheme("edit-undo", QIcon(":res/application-exit-symbolic.svg")),tr("E&xit"), this);
+    exitAct = new QAction(QIcon(":res/application-exit-symbolic.svg"),tr("E&xit"), this);
     exitAct->setShortcuts(QKeySequence::Quit);
     connect(exitAct, &QAction::triggered, this, &MainWindow::close);
 
-    undoAct = new QAction(tr("Undo"), this);
+    undoAct = new QAction(QIcon(":res/edit-undo-symbolic.svg"),tr("Undo"), this);
     undoAct->setShortcuts(QKeySequence::Undo);
     //connect(undoAct, &QAction::triggered, this, &MainWindow::undo);
 
-    cutAct = new QAction(tr("Cut"), this);
+    cutAct = new QAction(QIcon(":res/edit-cut-symbolic.svg"),tr("Cut"), this);
     cutAct->setShortcuts(QKeySequence::Cut);
     connect(cutAct, &QAction::triggered, m_editarea, &editarea::cutSelectBox);
 
-    copyAct = new QAction(tr("Copy"), this);
+    copyAct = new QAction(QIcon(":res/edit-copy-symbolic.svg"),tr("Copy"), this);
     copyAct->setShortcuts(QKeySequence::Copy);
     connect(copyAct, &QAction::triggered, m_editarea, &editarea::copySelectBox);
 
-    pasteAct = new QAction(tr("Paste"), this);
+    pasteAct = new QAction(QIcon(":res/edit-paste-symbolic.svg"),tr("Paste"), this);
     pasteAct->setShortcuts(QKeySequence::Paste);
     connect(pasteAct, &QAction::triggered, this, &MainWindow::doPaste);
 
-    aboutAct = new QAction(tr("&About"), this);
+    aboutAct = new QAction(QIcon(":res/help-about-symbolic.svg"),tr("&About"), this);
     connect(aboutAct, &QAction::triggered, this, &MainWindow::about);
 
     aboutQtAct = new QAction(tr("About &Qt"), this);
