@@ -12,15 +12,15 @@ void EditModeFill::FloodFill( int fillX, int fillY, QColor fillColor)
 {
     int                 width, height;
     QColor              targetColor,curColor;
-    QPoint              *pPt;
-    std::stack<QPoint *>  stk;
-    int		x,y;
-    int		startX,startY;
-    int		xEndLine,xStartLine;
-    bool	fStartNord,
-            fNord,
-            fStartSud,
-            fSud;
+    QPoint              pt;
+    std::stack<QPoint>  stk;
+    int                 x,y;
+    int                 startX,startY;
+    int                 xEndLine,xStartLine;
+    bool                fStartNord,
+                        fNord,
+                        fStartSud,
+                        fSud;
     //-----------------------------------------------------------------------
 
     if (!m_image) return;
@@ -32,17 +32,13 @@ void EditModeFill::FloodFill( int fillX, int fillY, QColor fillColor)
     width = m_image->width();
     height = m_image->height();
 
-    if ((pPt=new QPoint(fillX,fillY))!=NULL){
-        stk.push(pPt);
-    }
+    stk.push(QPoint(fillX,fillY));
 
     while (!stk.empty()){
 
-        pPt = stk.top();
+        startX = stk.top().x();
+        startY = stk.top().y();
         stk.pop();
-        startX = pPt->x();
-        startY = pPt->y();
-        delete pPt;
 
         //-- Vérifier au Nord
         fStartNord = false;
@@ -51,10 +47,8 @@ void EditModeFill::FloodFill( int fillX, int fillY, QColor fillColor)
             curColor = m_image->pixelColor(startX,startY-1);
             if (curColor.isValid()){
                 if (curColor==targetColor){
-                    if ((pPt=new QPoint(startX,startY-1))!=NULL){
-                        stk.push(pPt);
-                        fStartNord = true;
-                    }
+                    stk.push(QPoint(startX,startY-1));
+                    fStartNord = true;
                 }
             }
         }
@@ -65,10 +59,8 @@ void EditModeFill::FloodFill( int fillX, int fillY, QColor fillColor)
             curColor = m_image->pixelColor(startX,startY+1);
             if (curColor.isValid()){
                 if (curColor==targetColor){
-                    if ((pPt = new QPoint(startX,startY+1))!=NULL){
-                        stk.push(pPt);
-                        fStartSud = true;
-                    }
+                    stk.push(QPoint(startX,startY+1));
+                    fStartSud = true;
                 }
             }
         }
@@ -93,10 +85,8 @@ void EditModeFill::FloodFill( int fillX, int fillY, QColor fillColor)
                     curColor = m_image->pixelColor(x,y-1);
                     if ((curColor.isValid())&&(curColor==targetColor)){
                         if (!fNord){
-                            if ((pPt = new QPoint(x,y-1))!=NULL){
-                                stk.push(pPt);
-                                fNord = true;
-                            }
+                            stk.push(QPoint(x,y-1));
+                            fNord = true;
                         }
                     }else{
                         fNord = false;
@@ -110,11 +100,8 @@ void EditModeFill::FloodFill( int fillX, int fillY, QColor fillColor)
                     curColor = m_image->pixelColor(x,y+1);
                     if (curColor.isValid()&&(curColor==targetColor)){
                         if (!fSud){
-                            if ((pPt = new QPoint(x,y+1))!=NULL){
-                                stk.push(pPt);
-                                fSud = true;
-                            }
-
+                            stk.push(QPoint(x,y+1));
+                            fSud = true;
                         }
                     }else{
                         fSud = false;
@@ -147,10 +134,8 @@ void EditModeFill::FloodFill( int fillX, int fillY, QColor fillColor)
                     curColor = m_image->pixelColor(x,y-1);
                     if (curColor.isValid()&&(curColor==targetColor)){
                         if (!fNord){
-                            if ((pPt = new QPoint(x,y-1))!=NULL){
-                                stk.push(pPt);
-                                fNord = true;
-                            }
+                            stk.push( QPoint(x,y-1));
+                            fNord = true;
                         }
                     }else{
                         fNord = false;
@@ -164,10 +149,8 @@ void EditModeFill::FloodFill( int fillX, int fillY, QColor fillColor)
                     curColor = m_image->pixelColor(x,y+1);
                     if (curColor.isValid()&&(curColor==targetColor)){
                         if (!fSud){
-                            if ((pPt = new QPoint(x,y+1))!=NULL){
-                                stk.push(pPt);
-                                fSud = true;
-                            }
+                            stk.push(QPoint(x,y+1));
+                            fSud = true;
                         }
                     }else{
                         fSud = false;
