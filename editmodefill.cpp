@@ -187,7 +187,8 @@ bool EditModeFill::mousePressEvent(QWidget *w,QMouseEvent *event)
 {
     if (event->button()==Qt::LeftButton) {
         int pixelX,pixelY;
-        QPoint pt = event->pos();
+        QTransform trans = m_transform_scale * m_transform_translate;
+        QPoint pt = trans.map(event->pos());
         if (m_image){
             if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
                 backup();

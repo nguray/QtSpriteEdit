@@ -18,6 +18,13 @@ public:
     explicit editarea(QWidget *parent = nullptr);
     ~editarea();
 
+    int                 m_startX;
+    int                 m_startY;
+    int                 m_origin_dx_backup;
+    int                 m_origin_dy_backup;
+    int                 m_origin_dx;
+    int                 m_origin_dy;
+
     EditMode            *m_editMode;
     EditModeSelect      m_editModeSelect;
     EditModePencil      m_editModePencil;
@@ -53,6 +60,7 @@ protected:
     void mouseReleaseEvent(QMouseEvent *event);
     void mouseDoubleClickEvent(QMouseEvent *event);
     void mouseMoveEvent(QMouseEvent *event);
+    void wheelEvent(QWheelEvent *event);
     void resizeEvent(QResizeEvent *event);
 
 };

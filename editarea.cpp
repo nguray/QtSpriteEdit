@@ -6,7 +6,7 @@
 #include <QMouseEvent>
 
 editarea::editarea(QWidget *parent)
-    : QWidget{parent}
+    : QWidget{parent},m_startX(0),m_startY(0),m_origin_dx(0),m_origin_dy(0)
 {
     m_editMode->m_foreGroundColor = QColor(255,0,0);
     m_editMode->m_backGroundColor = QColor(0,0,0,0);
@@ -63,11 +63,15 @@ void editarea::paintEvent(QPaintEvent *event)
         }
     }
 
+
     painter.setRenderHint(QPainter::Antialiasing, false);
     painter.setClipRegion(QRegion(0,
                                   0,
                                   m_editMode->m_pixWidth*m_editMode->m_cellSize+2, m_editMode->m_pixHeight*m_editMode->m_cellSize+2,
                                   QRegion::Rectangle));
+
+    painter.setTransform(QTransform::fromScale(m_editMode->m_scale,m_editMode->m_scale));
+    painter.setTransform(QTransform::fromTranslate(m_origin_dx,m_origin_dy),true);
 
     int x,y;
     painter.setPen(QPen(QBrush(QColor(50,50,50)),0));
@@ -195,12 +199,22 @@ void editarea::pasteSelectBox()
 
 void editarea::mousePressEvent(QMouseEvent *event)
 {
+    if (event->button()==Qt::MiddleButton) {
+        m_startX = event->pos().x();
+        m_startY = event->pos().y();
+        m_origin_dx_backup = m_origin_dx;
+        m_origin_dy_backup = m_origin_dy;
+
+    }
     m_editMode->mousePressEvent(this, event);
 
 }
 
 void editarea::mouseReleaseEvent(QMouseEvent *event)
 {
+    if (event->button()==Qt::MiddleButton){
+        m_editMode->m_transform_translate = QTransform::fromTranslate(m_origin_dx,m_origin_dy).inverted();
+    }
     m_editMode->mouseReleaseEvent(this, event);
 
 }
@@ -213,8 +227,33 @@ void editarea::mouseDoubleClickEvent(QMouseEvent *event)
 
 void editarea::mouseMoveEvent(QMouseEvent *event)
 {
+    if (event->buttons() & Qt::MiddleButton) {
+        int dx = event->pos().x() - m_startX;
+        int dy = event->pos().y() - m_startY;
+        if (dx || dy){
+            m_origin_dx = m_origin_dx_backup;
+            m_origin_dy = m_origin_dy_backup;
+            m_origin_dx += dx;
+            m_origin_dy += dy;
+            update();
+        }
+    }
     m_editMode->mouseMoveEvent(this, event);
 
+}
+
+void editarea::wheelEvent(QWheelEvent *event)
+{
+    QPoint numDegrees = event->angleDelta() / 8;
+
+    if (numDegrees.y()>0){
+        m_editMode->m_scale += 0.05f;
+    }else{
+        m_editMode->m_scale -= 0.05f;
+    }
+    m_editMode->m_transform_scale = QTransform::fromScale(m_editMode->m_scale,m_editMode->m_scale).inverted();
+    update();
+    event->accept();
 }
 
 void editarea::resizeEvent(QResizeEvent *event)

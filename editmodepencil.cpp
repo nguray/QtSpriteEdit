@@ -20,7 +20,8 @@ bool EditModePencil::mousePressEvent(QWidget *w,QMouseEvent *event)
 {
     if (event->button()==Qt::LeftButton) {
         int pixelX,pixelY;
-        QPoint pt = event->pos();
+        QTransform trans = m_transform_scale * m_transform_translate;
+        QPoint pt = trans.map(event->pos());
         if (m_image){
             backup();
             if (QApplication::keyboardModifiers() && Qt::ControlModifier){
@@ -52,7 +53,8 @@ bool EditModePencil::mousePressEvent(QWidget *w,QMouseEvent *event)
 bool EditModePencil::mouseReleaseEvent(QWidget *w,QMouseEvent *event)
 {
     int pixelX,pixelY;
-    QPoint pt = event->pos();
+    QTransform trans = m_transform_scale * m_transform_translate;
+    QPoint pt = trans.map(event->pos());
     if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
         m_start_x = pixelX;
         m_start_y = pixelY;
@@ -69,7 +71,8 @@ bool EditModePencil::mouseMoveEvent(QWidget *w,QMouseEvent *event)
 {
     if (event->buttons() & Qt::LeftButton) {
         int pixelX,pixelY;
-        QPoint pt = event->pos();
+        QTransform trans = m_transform_scale * m_transform_translate;
+        QPoint pt = trans.map(event->pos());
         if (m_image){
             if (QApplication::keyboardModifiers() && Qt::ControlModifier){
                 if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){

@@ -13,6 +13,9 @@ public:
     static int      m_pixWidth;
     static int      m_pixHeight;
     static int      m_cellSize;
+    static float    m_scale;
+    static QTransform m_transform_scale;
+    static QTransform m_transform_translate;
     static QImage*  m_image;
     static QImage*  m_imageBackup;
     static QImage*  m_imageCopy;

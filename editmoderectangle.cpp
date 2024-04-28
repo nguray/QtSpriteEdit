@@ -29,7 +29,8 @@ bool EditModeRectangle::mousePressEvent(QWidget *w,QMouseEvent *event)
 {
     if (event->button()==Qt::LeftButton) {
         int pixelX,pixelY;
-        QPoint pt = event->pos();
+        QTransform trans = m_transform_scale * m_transform_translate;
+        QPoint pt = trans.map(event->pos());
         if (m_selectBox.m_mode){
             if (m_selectBox.hitHandle(pt)){
                 mouseToPixel( pt.x(), pt.y(), pixelX, pixelY);
@@ -110,7 +111,8 @@ bool EditModeRectangle::mouseMoveEvent(QWidget *w,QMouseEvent *event)
     if (event->buttons() & Qt::LeftButton) {
         int     pixelX,pixelY;
         bool    fDraw=false;
-        QPoint  pt = event->pos();
+        QTransform trans = m_transform_scale * m_transform_translate;
+        QPoint pt = trans.map(event->pos());
         if (m_selectBox.m_mode){
             if (m_selectBox.m_idHandle!=-1){
                 mouseToPixel( pt.x(), pt.y(), pixelX, pixelY);

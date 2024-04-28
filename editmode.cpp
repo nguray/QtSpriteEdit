@@ -3,14 +3,17 @@
 #include <QPainter>
 #include <QColor>
 
-QColor  EditMode::m_foreGroundColor = QColor(0,0,0);
-QColor  EditMode::m_backGroundColor = QColor(0,0,0,0);
-int     EditMode::m_pixWidth = 32;
-int     EditMode::m_pixHeight = 32;
-int     EditMode::m_cellSize = 24;
-QImage* EditMode::m_image = NULL;
-QImage* EditMode::m_imageBackup = NULL;
-QImage* EditMode::m_imageCopy = NULL;
+QColor      EditMode::m_foreGroundColor = QColor(0,0,0);
+QColor      EditMode::m_backGroundColor = QColor(0,0,0,0);
+int         EditMode::m_pixWidth = 32;
+int         EditMode::m_pixHeight = 32;
+int         EditMode::m_cellSize = 24;
+float       EditMode::m_scale = 1.0f;
+QTransform  EditMode::m_transform_scale = QTransform::fromScale(1.0f,1.0f);
+QTransform  EditMode::m_transform_translate = QTransform::fromTranslate(0.0f,0.0f);
+QImage*     EditMode::m_image = NULL;
+QImage*     EditMode::m_imageBackup = NULL;
+QImage*     EditMode::m_imageCopy = NULL;
 
 EditMode::EditMode()
 {
