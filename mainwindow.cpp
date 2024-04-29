@@ -44,6 +44,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     connect(m_editarea,&editarea::editSpriteChanged,m_spritesbar,&spritesbar::refreshDisplay);
 
+    connect(m_editarea,&editarea::pickImageColor,m_colorsbar,&colorsbar::setForeGroundColor);
 
     createActions();
     createMenus();

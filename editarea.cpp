@@ -4,6 +4,7 @@
 #include <QPoint>
 #include <QRect>
 #include <QMouseEvent>
+#include <QApplication>
 
 editarea::editarea(QWidget *parent)
     : QWidget{parent},m_startX(0),m_startY(0),m_origin_dx(0),m_origin_dy(0)
@@ -205,9 +206,21 @@ void editarea::mousePressEvent(QMouseEvent *event)
         m_origin_dx_backup = m_origin_dx;
         m_origin_dy_backup = m_origin_dy;
 
+    }else if ((event->button()==Qt::LeftButton) && (QApplication::keyboardModifiers() & Qt::ShiftModifier)){
+        //--
+        int pixelX,pixelY;
+        QTransform trans = m_editMode->m_transform_scale * m_editMode->m_transform_translate;
+        QPoint pt = trans.map(event->pos());
+        if (m_editMode->mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
+            QColor pickColor = m_editMode->m_image->pixelColor(pixelX,pixelY);
+            m_editMode->m_foreGroundColor = pickColor;
+            emit pickImageColor(pickColor);
+            //update();
+            //event->accept();
+        }
+    }else{
+        m_editMode->mousePressEvent(this, event);
     }
-    m_editMode->mousePressEvent(this, event);
-
 }
 
 void editarea::mouseReleaseEvent(QMouseEvent *event)

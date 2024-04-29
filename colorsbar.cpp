@@ -61,6 +61,13 @@ QColor colorsbar::getForegroundColor()
     return m_foreGroundColor;
 }
 
+void colorsbar::setForeGroundColor(QColor newColor)
+{
+    //-----------------------------------------------------------
+    m_foreGroundColor = newColor;
+    update();
+}
+
 QColor colorsbar::getBackgroundColor()
 {
     return m_backGroundColor;

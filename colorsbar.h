@@ -50,6 +50,9 @@ signals:
     void foreGroundColorChanged(QColor c);
     void backGroundColorChanged(QColor c);
 
+public slots:
+    void setForeGroundColor(QColor newColor);
+
     // QWidget interface
 protected:
     void mousePressEvent(QMouseEvent *event);

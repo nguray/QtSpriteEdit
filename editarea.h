@@ -43,6 +43,7 @@ public:
 
 signals:
     void editSpriteChanged();
+    void pickImageColor(QColor c);
 
 public slots:
     void setForeGroundColor(QColor newColor);

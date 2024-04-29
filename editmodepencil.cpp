@@ -24,7 +24,7 @@ bool EditModePencil::mousePressEvent(QWidget *w,QMouseEvent *event)
         QPoint pt = trans.map(event->pos());
         if (m_image){
             backup();
-            if (QApplication::keyboardModifiers() && Qt::ControlModifier){
+            if (QApplication::keyboardModifiers() & Qt::ControlModifier){
                 if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
                     restore();
                     QPainter p(m_image);
@@ -74,7 +74,7 @@ bool EditModePencil::mouseMoveEvent(QWidget *w,QMouseEvent *event)
         QTransform trans = m_transform_scale * m_transform_translate;
         QPoint pt = trans.map(event->pos());
         if (m_image){
-            if (QApplication::keyboardModifiers() && Qt::ControlModifier){
+            if (QApplication::keyboardModifiers() & Qt::ControlModifier){
                 if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
                     if ((pixelX!=m_start_x)||(pixelY!=m_start_y)){
                         restore();
