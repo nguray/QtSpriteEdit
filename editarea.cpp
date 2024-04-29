@@ -22,11 +22,15 @@ editarea::editarea(QWidget *parent)
 
     m_editMode = &m_editModePencil;
 
+    m_pickColorCursor = new QCursor(QPixmap(":res/PickColor.png"),6,23);
+
 }
 
 editarea::~editarea()
 {
-
+    if (m_pickColorCursor){
+        delete m_pickColorCursor;
+    }
 }
 
 void editarea::setEditSprite(QImage *sprite)
@@ -200,6 +204,7 @@ void editarea::pasteSelectBox()
 
 void editarea::mousePressEvent(QMouseEvent *event)
 {
+    setFocus();
     if (event->button()==Qt::MiddleButton) {
         m_startX = event->pos().x();
         m_startY = event->pos().y();
@@ -273,4 +278,23 @@ void editarea::resizeEvent(QResizeEvent *event)
 {
     m_editMode->resizeEvent(this, event);
 
+}
+
+void editarea::keyPressEvent(QKeyEvent *event)
+{
+    if(event->key() == Qt::Key_Shift)
+    {
+        //--
+        setCursor(*m_pickColorCursor);
+    }
+}
+
+void editarea::keyReleaseEvent(QKeyEvent *event)
+{
+    if(event->key() == Qt::Key_Shift)
+    {
+        //--
+        setCursor(Qt::ArrowCursor);
+
+    }
 }

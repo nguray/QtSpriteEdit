@@ -25,6 +25,7 @@ public:
     int                 m_origin_dx;
     int                 m_origin_dy;
 
+    QCursor             *m_pickColorCursor;
     EditMode            *m_editMode;
     EditModeSelect      m_editModeSelect;
     EditModePencil      m_editModePencil;
@@ -63,6 +64,8 @@ protected:
     void mouseMoveEvent(QMouseEvent *event);
     void wheelEvent(QWheelEvent *event);
     void resizeEvent(QResizeEvent *event);
+    void keyPressEvent(QKeyEvent *event);
+    void keyReleaseEvent(QKeyEvent *event);
 
 };
 
