@@ -10,6 +10,7 @@ public:
     AboutDlg(QWidget *parent = nullptr);
 
 private slots:
+
     void    okBtnClick();
 
 };

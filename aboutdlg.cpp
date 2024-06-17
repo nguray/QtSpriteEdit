@@ -39,5 +39,6 @@ AboutDlg::AboutDlg(QWidget *parent): QDialog{parent}
 
 void AboutDlg::okBtnClick()
 {
+
     accept();
 }
