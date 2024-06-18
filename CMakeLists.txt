@@ -27,12 +27,15 @@ set(PROJECT_SOURCES
         editmodeellipse.h editmodeellipse.cpp
         editmodefill.h editmodefill.cpp
         newspritedlg.h newspritedlg.cpp
+        aboutdlg.h aboutdlg.cpp
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(QtSpriteEdit
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        qtspriteedit.qrc
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET QtSpriteEdit APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -42,6 +45,7 @@ else()
     if(ANDROID)
         add_library(QtSpriteEdit SHARED
             ${PROJECT_SOURCES}
+            qtspriteedit.qrc
         )
 # Define properties for Android with Qt 5 after find_package() calls as:
 #    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
@@ -49,7 +53,6 @@ else()
         add_executable(QtSpriteEdit
             ${PROJECT_SOURCES}
             qtspriteedit.qrc
-            aboutdlg.h aboutdlg.cpp
         )
     endif()
 endif()
