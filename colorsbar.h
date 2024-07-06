@@ -4,6 +4,20 @@
 #include <fstream>
 #include <vector>
 #include <QWidget>
+#include <QRect>
+
+class ColorRect : public QRect
+{
+public:
+    explicit ColorRect();
+    explicit ColorRect(QColor c);
+    explicit ColorRect(int x, int y, int width, int height, QColor c);
+
+    QColor color;
+
+    void draw(QPainter *p);
+
+};
 
 class colorsbar : public QWidget
 {
@@ -25,10 +39,10 @@ public:
     int m_nbColumns;
     int m_cellSize;
 
-    std::vector<QColor> m_tblColors;
-    QColor m_foreGroundColor;
-    QColor m_foreGroundColorBackup;
-    QColor m_backGroundColor;
+    std::vector<ColorRect> tblColors;
+    ColorRect foregroundColor;
+    ColorRect backgroundColor;
+    QColor    foreGroundColorBackup;
 
     void save(std::string pathName, std::string fileName);
     bool load(std::string pathName, std::string fileName);
