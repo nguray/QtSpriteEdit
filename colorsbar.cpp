@@ -24,12 +24,16 @@ ColorRect::ColorRect(int x, int y, int width, int height, QColor c)
 void ColorRect::draw(QPainter *p,bool fFrame)
 {
     //----------------------------------------------------
+    int s = width();
     if (color.alpha()!=0){
         int d = s-1;
         p->fillRect(x(),y(),d,d,QBrush(color));
         if (fFrame){
             p->setBrush(Qt::NoBrush);
-            p->setPen(QPen(QBrush(QColor(0,0,0)),0));
+            unsigned char r = 255-color.red();
+            unsigned char g = 255-color.green();
+            unsigned char b = 255-color.blue();
+            p->setPen(QPen(QBrush(QColor(r,g,b)),0));
             int left = x();
             int top = y();
             int right = x() + s-1;
