@@ -23,7 +23,7 @@ ColorRect::ColorRect(int x, int y, int width, int height, QColor c)
 
 void ColorRect::draw(QPainter *p,bool fFrame)
 {
-    int s = width();
+    //------------------------------------------------------
     if (color.alpha()!=0){
         int d = s-1;
         p->fillRect(x(),y(),d,d,QBrush(color));
@@ -358,7 +358,7 @@ bool colorsbar::load(std::string pathName, std::string fileName)
         fullPathName = pathName + "/" + fileName;
     }else{
         fullPathName = fileName;
-    }    
+    }
 
     std::ifstream   f(fullPathName);
     if (f.is_open()){
