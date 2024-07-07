@@ -14,7 +14,7 @@ ColorRect::ColorRect(int x, int y, int width, int height, QColor c)
     : QRect(x, y, width, height), color(c) {}
 
 void ColorRect::draw(QPainter *p, bool fFrame) {
-  //--------------------------------------------------
+  //--------------------------------------------------AA
   int s = width();
   if (color.alpha() != 0) {
     int d = s - 1;
