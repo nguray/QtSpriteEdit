@@ -22,7 +22,7 @@ ColorRect::ColorRect(int x, int y, int width, int height, QColor c)
 
 void ColorRect::draw(QPainter *p,bool fFrame)
 {
-    //----------------------------------------------------
+    //--------------------------------------------------
     int s = width();
     if (color.alpha()!=0){
         int d = s-1;
