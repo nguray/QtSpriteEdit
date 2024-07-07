@@ -18,7 +18,6 @@ ColorRect::ColorRect(QColor c)
 ColorRect::ColorRect(int x, int y, int width, int height, QColor c)
     :QRect(x, y, width, height), color(c)
 {
-
 }
 
 void ColorRect::draw(QPainter *p,bool fFrame)
