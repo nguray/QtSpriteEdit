@@ -1,1 +1,1 @@
-Small Sprite Editor using Qt in C++
+Small Sprite Editor using Qt in C++.
