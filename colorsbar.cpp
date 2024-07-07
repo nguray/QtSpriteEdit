@@ -21,12 +21,24 @@ ColorRect::ColorRect(int x, int y, int width, int height, QColor c)
 
 }
 
-void ColorRect::draw(QPainter *p)
+void ColorRect::draw(QPainter *p,bool fFrame)
 {
     int s = width();
     if (color.alpha()!=0){
         int d = s-1;
         p->fillRect(x(),y(),d,d,QBrush(color));
+        if (fFrame){
+            p->setBrush(Qt::NoBrush);
+            p->setPen(QPen(QBrush(QColor(0,0,0)),0));
+            int left = x();
+            int top = y();
+            int right = x() + s-1;
+            int bottom = y() + s-1;
+            p->drawLine(left,top,right,top);
+            p->drawLine(right,top,right,bottom);
+            p->drawLine(right,bottom,left,bottom);
+            p->drawLine(left,bottom,left,top);
+        }
     }else{
         p->setBrush(Qt::NoBrush);
         p->setPen(QPen(QBrush(QColor(0,0,0)),0));
@@ -44,9 +56,8 @@ void ColorRect::draw(QPainter *p)
 
 }
 
-
 colorsbar::colorsbar(QWidget *parent)
-    : QWidget{parent}
+    : QWidget{parent},fMove(false)
 {
     setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
     setMinimumHeight(48);
@@ -147,7 +158,12 @@ void colorsbar::mousePressEvent(QMouseEvent *event)
     QColor  selColor;
     QPoint lastPoint = event->pos();
     if (event->button()==Qt::LeftButton) {
-        if (lastPoint.x()<(2*m_cellSize)){
+        if (foregroundColor.contains(lastPoint.x(),lastPoint.y())){
+            int offSet=m_cellSize/2;
+            fMove = true;
+            dragColor.color = foregroundColor.color;
+            dragColor.setRect(lastPoint.x()-offSet,lastPoint.y()-offSet,m_cellSize,m_cellSize);
+        }else if (backgroundColor.contains(lastPoint.x(),lastPoint.y())){
             QColor d = foregroundColor.color;
             foregroundColor.color = backgroundColor.color;
             backgroundColor.color = d;
@@ -172,6 +188,21 @@ void colorsbar::mousePressEvent(QMouseEvent *event)
 
 }
 
+void colorsbar::mouseReleaseEvent(QMouseEvent *event)
+{
+    QPoint pt = event->pos();
+    //----------------------------------------------------------
+    if (fMove){
+        int idColor;
+        fMove = false;
+        dragColor.setRect(-1,-1,0,0);
+        if (mouse2ColorIndex(pt.x(), pt.y(), idColor)){
+            tblColors[idColor].color = dragColor.color;
+        }
+        update();
+    }
+}
+
 void colorsbar::mouseDoubleClickEvent(QMouseEvent *event)
 {
     //-----------------------------------------------------------
@@ -187,10 +218,20 @@ void colorsbar::mouseDoubleClickEvent(QMouseEvent *event)
             update();
         }
 
-
     }
 }
 
+void colorsbar::mouseMoveEvent(QMouseEvent *event)
+{
+    //-----------------------------------------------------------
+    QPoint lastPoint = event->pos();
+    if (fMove){
+        int offSet=m_cellSize/2;
+        dragColor.setRect(lastPoint.x()-offSet,lastPoint.y()-offSet,m_cellSize,m_cellSize);
+        update();
+    }
+
+}
 
 void colorsbar::paintEvent(QPaintEvent *event)
 {
@@ -224,6 +265,11 @@ void colorsbar::paintEvent(QPaintEvent *event)
     //--
     foregroundColor.setRect(2, 2, 1.3*m_cellSize, 1.3*m_cellSize);
     foregroundColor.draw(&painter);
+
+    //--
+    if (!dragColor.isNull()){
+        dragColor.draw(&painter,true);
+    }
 
 }
 

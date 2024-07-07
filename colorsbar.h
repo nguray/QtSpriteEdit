@@ -15,7 +15,7 @@ public:
 
     QColor color;
 
-    void draw(QPainter *p);
+    void draw(QPainter *p, bool fFrame=false);
 
 };
 
@@ -44,6 +44,9 @@ public:
     ColorRect backgroundColor;
     QColor    foreGroundColorBackup;
 
+    bool        fMove;
+    ColorRect   dragColor;
+
     void save(std::string pathName, std::string fileName);
     bool load(std::string pathName, std::string fileName);
     void drawCell(QPainter *p,int x,int y,int d,QColor c);
@@ -70,8 +73,10 @@ public slots:
     // QWidget interface
 protected:
     void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
     void paintEvent(QPaintEvent *event);
     void mouseDoubleClickEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
 
 };
 
