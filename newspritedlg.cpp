@@ -79,6 +79,7 @@ NewSpriteDlg::NewSpriteDlg(QWidget *parent) : QDialog{parent} {
 
   setLayout(vBoxLayout);
   setWindowTitle(tr("New Sprite"));
+
 }
 
 void NewSpriteDlg::okBtnClick() {
