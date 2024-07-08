@@ -54,7 +54,7 @@ colorsbar::colorsbar(QWidget *parent) : QWidget{parent}, fMove(false) {
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   setMinimumHeight(48);
 
-  m_cellSize = 23;
+  m_cellSize = 24;
   m_nbRows = 2;
   m_nbColumns = 20;
 
@@ -65,7 +65,7 @@ colorsbar::colorsbar(QWidget *parent) : QWidget{parent}, fMove(false) {
     }
   }
 
-  //--
+  //----
   if (!load("", "Default.pal")) {
     int i = 0;
     tblColors[i++].color = QColor(0x00, 0x00, 0x00, 0x00);
