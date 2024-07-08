@@ -1,0 +1,82 @@
+[
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/QtSpriteEdit_autogen/mocs_compilation.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/mocs_compilation.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/mocs_compilation.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/main.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/main.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/main.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/mainwindow.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/mainwindow.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/mainwindow.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/editarea.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/editarea.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/editarea.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/spritesbar.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/spritesbar.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/spritesbar.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/colorsbar.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/colorsbar.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/colorsbar.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/selectrect.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/selectrect.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/selectrect.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/editmode.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/editmode.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/editmode.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/editmodeselect.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/editmodeselect.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/editmodeselect.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/editmodepencil.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/editmodepencil.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/editmodepencil.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/editmoderectangle.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/editmoderectangle.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/editmoderectangle.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/editmodeellipse.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/editmodeellipse.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/editmodeellipse.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/editmodefill.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/editmodefill.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/editmodefill.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/newspritedlg.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/newspritedlg.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/newspritedlg.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/aboutdlg.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/aboutdlg.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/aboutdlg.cpp"
+},
+{
+  "directory": "/home/nguray/VcQtProjects/QtSpriteEdit/build",
+  "command": "/usr/bin/c++ -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB -I/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtWidgets -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtGui -isystem /home/nguray/Qt/5.15.2/gcc_64/include/QtCore -isystem /home/nguray/Qt/5.15.2/gcc_64/./mkspecs/linux-g++ -g -fPIC -std=gnu++17 -o CMakeFiles/QtSpriteEdit.dir/QtSpriteEdit_autogen/EWIEGA46WW/qrc_qtspriteedit.cpp.o -c /home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/EWIEGA46WW/qrc_qtspriteedit.cpp",
+  "file": "/home/nguray/VcQtProjects/QtSpriteEdit/build/QtSpriteEdit_autogen/EWIEGA46WW/qrc_qtspriteedit.cpp"
+}
+]
