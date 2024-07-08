@@ -3,9 +3,6 @@
         "qwidget": "cpp"
     },
     "C_Cpp.intelliSenseEngine": "disabled",
-    "cmake.configureSettings": {
-        "CMAKE_PREFIX_PATH": "/home/nguray/Qt/5.15.2/gcc_64/"
-    },
     "cmake.copyCompileCommands": "${workspaceFolder}/compile_commands.json",
     "clangd.arguments": [
         "-header-insertion=never"

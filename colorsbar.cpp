@@ -90,7 +90,6 @@ colorsbar::colorsbar(QWidget *parent) : QWidget{parent}, fMove(false) {
     foregroundColor.color = tblColors[1].color;
     backgroundColor.color = tblColors[0].color;
   }
-
 }
 
 colorsbar::~colorsbar() {
