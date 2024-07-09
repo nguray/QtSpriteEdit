@@ -54,7 +54,7 @@ colorsbar::colorsbar(QWidget *parent) : QWidget{parent}, fMove(false) {
   setSizePolicy(QSizePolicy::Preferred, QSizePolicy::Fixed);
   setMinimumHeight(48);
 
-  m_cellSize = 22;
+  m_cellSize = 24;
   m_nbRows = 2;
   m_nbColumns = 20;
 
