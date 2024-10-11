@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     m_editarea->setForeGroundColor(m_colorsbar->getForegroundColor());
     m_editarea->setBackGroundColor(m_colorsbar->getBackgroundColor());
 
-    QImage *img = m_spritesbar->getSelectedSprite();
+    auto img = m_spritesbar->getSelectedSprite();
     if (img){
         m_editarea->setEditSprite(img);
     }

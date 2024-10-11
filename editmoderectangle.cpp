@@ -97,7 +97,7 @@ bool EditModeRectangle::mouseDoubleClickEvent(QWidget *w,QMouseEvent *event)
 void EditModeRectangle::drawRectangle(int l,int t,int r,int b)
 {
     QRect   rect;
-    QPainter p(m_image);
+    QPainter p(m_image.get());
     p.setPen(QPen(QBrush(m_foreGroundColor),0));
     rect.setCoords(l, t, r-1, b-1);
     p.drawRect(rect);

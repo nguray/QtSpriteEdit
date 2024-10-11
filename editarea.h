@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include <QColor>
+#include <memory>
 #include "editmode.h"
 #include "editmodeselect.h"
 #include "editmodepencil.h"
@@ -49,7 +50,7 @@ signals:
 public slots:
     void setForeGroundColor(QColor newColor);
     void setBackGroundColor(QColor newColor);
-    void setEditSprite(QImage *sprite);
+    void setEditSprite(std::shared_ptr<QImage> sprite);
     void cutSelectBox();
     void copySelectBox();
     void pasteSelectBox();

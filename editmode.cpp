@@ -11,9 +11,9 @@ int         EditMode::m_cellSize = 24;
 float       EditMode::m_scale = 1.0f;
 QTransform  EditMode::m_transform_scale = QTransform::fromScale(1.0f,1.0f);
 QTransform  EditMode::m_transform_translate = QTransform::fromTranslate(0.0f,0.0f);
-QImage*     EditMode::m_image = NULL;
-QImage*     EditMode::m_imageBackup = NULL;
-QImage*     EditMode::m_imageCopy = NULL;
+std::shared_ptr<QImage> EditMode::m_image=std::make_shared<QImage>(EditMode::m_pixWidth,EditMode::m_pixHeight,QImage::Format_ARGB32);
+std::shared_ptr<QImage> EditMode::m_imageBackup=std::make_shared<QImage>(EditMode::m_pixWidth,EditMode::m_pixHeight,QImage::Format_ARGB32);
+std::shared_ptr<QImage> EditMode::m_imageCopy=std::make_shared<QImage>(EditMode::m_pixWidth,EditMode::m_pixHeight,QImage::Format_ARGB32);
 
 EditMode::EditMode()
 {
@@ -22,15 +22,6 @@ EditMode::EditMode()
 
 EditMode::~EditMode()
 {
-    if (m_imageBackup){
-        delete m_imageBackup;
-        m_imageBackup = NULL;
-    }
-
-    if (m_imageCopy){
-        delete m_imageCopy;
-        m_imageCopy = NULL;
-    }
 }
 
 bool EditMode::mouseToPixel(int mx,int my,int &pixelX,int &pixelY)
@@ -74,7 +65,7 @@ void EditMode::backup()
         //     }
         // }
 
-        QPainter painter(m_imageBackup);
+        QPainter painter(m_imageBackup.get());
         painter.drawImage(QPoint(0,0), *m_image);
         painter.end();
 
@@ -91,7 +82,7 @@ void EditMode::restore()
         //         m_image->setPixelColor(x,y,c);
         //     }
         // }
-        QPainter painter(m_image);
+        QPainter painter(m_image.get());
         painter.drawImage(QPoint(0,0), *m_imageBackup);
         painter.end();
 

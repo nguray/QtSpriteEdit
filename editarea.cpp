@@ -6,7 +6,6 @@
 #include <QPoint>
 #include <QRect>
 
-
 editarea::editarea(QWidget *parent)
     : QWidget{parent}, m_startX(0), m_startY(0), m_origin_dx(0),
       m_origin_dy(0) {
@@ -15,14 +14,7 @@ editarea::editarea(QWidget *parent)
   m_editMode->m_pixWidth = 32;
   m_editMode->m_pixHeight = 32;
   m_editMode->m_cellSize = 24;
-  m_editMode->m_image = NULL;
-  m_editMode->m_imageBackup = NULL;
-  m_editMode->m_imageCopy = NULL;
-  // m_image = new QImage(m_pixWidth,m_pixHeight,QImage::Format_ARGB32);
-  // m_image->fill(QColor(0,0,0,0));
-
   m_editMode = &m_editModePencil;
-
   m_pickColorCursor = new QCursor(QPixmap(":res/PickColor.png"), 6, 23);
 }
 
@@ -32,16 +24,12 @@ editarea::~editarea() {
   }
 }
 
-void editarea::setEditSprite(QImage *sprite) {
+void editarea::setEditSprite(std::shared_ptr<QImage> sprite) {
   if (sprite) {
     m_editMode->m_pixWidth = sprite->width();
     m_editMode->m_pixHeight = sprite->height();
     m_editMode->m_image = sprite;
-    if (m_editMode->m_imageBackup) {
-      delete m_editMode->m_imageBackup;
-    }
-    m_editMode->m_imageBackup =
-        new QImage(sprite->width(), sprite->height(), sprite->format());
+    m_editMode->m_imageBackup = std::make_shared<QImage>(sprite->width(), sprite->height(), sprite->format());
     m_editMode->m_imageBackup->fill(QColor(0, 0, 0, 0));
     update();
   }

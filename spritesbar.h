@@ -3,12 +3,13 @@
 
 #include <QWidget>
 #include <vector>
+#include <memory>
 
 class Sprite{
 public:
     Sprite();
     ~Sprite();
-    QImage      *m_image;
+    std::shared_ptr<QImage> m_image;
     QString     m_fileName;
 
 };
@@ -26,7 +27,7 @@ public:
     int     m_idSelectedCell;
 
     int     mouseToIndex(QPoint pt);
-    QImage* getSelectedSprite();
+    std::shared_ptr<QImage> getSelectedSprite();
     QString getSelectedSpriteFileName();
     void    newImage(int imgWidth, int imgHeight);
     void    openImage(QString fileName);
@@ -34,7 +35,7 @@ public:
     void    saveAsImage(const QString fileName, const char *fileFormat);
 
 signals:
-    void selectSpriteChanged(QImage *sprite);
+    void selectSpriteChanged(std::shared_ptr<QImage> sprite);
 
 public slots:
     void refreshDisplay();

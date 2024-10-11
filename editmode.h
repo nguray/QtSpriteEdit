@@ -3,6 +3,7 @@
 #include <QWidget>
 #include <QColor>
 #include <QImage>
+#include <memory>
 
 class EditMode
 {
@@ -16,9 +17,14 @@ public:
     static float    m_scale;
     static QTransform m_transform_scale;
     static QTransform m_transform_translate;
-    static QImage*  m_image;
-    static QImage*  m_imageBackup;
-    static QImage*  m_imageCopy;
+//    static QImage*  m_image;
+//    static QImage*  m_imageBackup;
+//    static QImage*  m_imageCopy;
+
+    static std::shared_ptr<QImage> m_image;
+    static std::shared_ptr<QImage> m_imageBackup;
+    static std::shared_ptr<QImage> m_imageCopy;
+
 
     EditMode();
     ~EditMode();

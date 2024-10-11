@@ -9,9 +9,9 @@ Sprite::Sprite():m_image(NULL),m_fileName("")
 
 Sprite::~Sprite()
 {
-    if (m_image){
-        delete m_image;
-    }
+    //if (m_image){
+    //    delete m_image;
+    //}
 }
 
 spritesbar::spritesbar(QWidget *parent)
@@ -26,10 +26,9 @@ spritesbar::spritesbar(QWidget *parent)
     Sprite *spr;
     for (int i=0;i<m_nbCells;i++){
         if ((spr=new Sprite())!=NULL){
-            QImage *image = new QImage(32,32,QImage::Format_ARGB32);
-            if (image!=NULL){
-                image->fill(QColor(0,0,0,0));
-                spr->m_image = image;
+            spr->m_image = std::make_shared<QImage>(32,32,QImage::Format_ARGB32);
+            if (spr->m_image!=NULL){
+                spr->m_image->fill(QColor(0,0,0,0));
                 m_tblSprites.push_back(spr);
             }else{
                 delete spr;
@@ -41,12 +40,12 @@ spritesbar::spritesbar(QWidget *parent)
 
 spritesbar::~spritesbar()
 {
-    for (auto img : m_tblSprites){
-        if (img){
-            delete img;
-        }
-    }
-    m_tblSprites.clear();
+    // for (auto img : m_tblSprites){
+    //     if (img){
+    //         delete img;
+    //     }
+    // }
+    // m_tblSprites.clear();
 }
 
 void spritesbar::refreshDisplay()
@@ -63,7 +62,7 @@ int spritesbar::mouseToIndex(QPoint pt)
     return -1;
 }
 
-QImage *spritesbar::getSelectedSprite()
+std::shared_ptr<QImage> spritesbar::getSelectedSprite()
 {
     if ((m_idSelectedCell>=0)&&(m_idSelectedCell<m_nbCells)){
         return m_tblSprites[m_idSelectedCell]->m_image;
@@ -85,10 +84,9 @@ void spritesbar::mousePressEvent(QMouseEvent *event)
     if (event->button()==Qt::LeftButton) {
         int id = mouseToIndex(pt);
         if (id!=-1){
-            QImage *img;
             m_idSelectedCell = id;
-            if ((img=m_tblSprites[id]->m_image)!=NULL){
-                emit selectSpriteChanged(img);
+            if (m_tblSprites[id]){
+                emit selectSpriteChanged(m_tblSprites[id]->m_image);
                 update();
             }
         }
@@ -98,12 +96,9 @@ void spritesbar::mousePressEvent(QMouseEvent *event)
 void spritesbar::newImage(int imgWidth, int imgHeight)
 {
     if ((m_idSelectedCell>=0)&&(m_idSelectedCell<m_nbCells)){
-        QImage *img = new QImage( imgWidth, imgHeight,QImage::Format_ARGB32);
+        auto img = std::make_shared<QImage>(imgWidth, imgHeight, QImage::Format_ARGB32);
         if (img){
             img->fill(QColor(0,0,0,0));
-            if (m_tblSprites[m_idSelectedCell]->m_image!=NULL){
-                delete m_tblSprites[m_idSelectedCell]->m_image;
-            }
             m_tblSprites[m_idSelectedCell]->m_image = img;
             emit selectSpriteChanged(img);
             update();
@@ -114,18 +109,18 @@ void spritesbar::newImage(int imgWidth, int imgHeight)
 void spritesbar::openImage(QString fileName)
 {
     //-------------------------------------------------------
-    QImage *sprite = getSelectedSprite();
-    if (sprite ){
-        sprite->load(fileName);
+    auto spr = getSelectedSprite();
+    if (spr ){
+        spr->load(fileName);
         m_tblSprites[m_idSelectedCell]->m_fileName = fileName;
-        emit selectSpriteChanged(sprite);
+        emit selectSpriteChanged(spr);
         update();
     }
 }
 
 void spritesbar::saveImage()
 {
-    QImage *sprite = getSelectedSprite();
+    auto sprite = getSelectedSprite();
     if (sprite ){
         sprite->save(m_tblSprites[m_idSelectedCell]->m_fileName);
     }
@@ -134,7 +129,7 @@ void spritesbar::saveImage()
 void spritesbar::saveAsImage(const QString fileName, const char *fileFormat)
 {
     //-------------------------------------------------------
-    QImage *sprite = getSelectedSprite();
+    auto sprite = getSelectedSprite();
     if (sprite ){
         if (sprite->save(fileName,fileFormat)){
             m_tblSprites[m_idSelectedCell]->m_fileName = fileName;

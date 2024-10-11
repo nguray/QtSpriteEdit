@@ -97,7 +97,7 @@ bool EditModeEllipse::mouseDoubleClickEvent(QWidget *w,QMouseEvent *event)
 void EditModeEllipse::drawEllipse(int l,int t,int r,int b)
 {
     QRect   rect;
-    QPainter p(m_image);
+    QPainter p(m_image.get());
     p.setPen(QPen(QBrush(m_foreGroundColor),0));
     rect.setCoords(l, t, r-1, b-1);
     p.drawEllipse(rect);

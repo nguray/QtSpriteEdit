@@ -27,7 +27,7 @@ bool EditModePencil::mousePressEvent(QWidget *w,QMouseEvent *event)
             if (QApplication::keyboardModifiers() & Qt::ControlModifier){
                 if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
                     restore();
-                    QPainter p(m_image);
+                    QPainter p(m_image.get());
                     p.setRenderHint(QPainter::Antialiasing, false);
                     p.setPen(m_foreGroundColor);
                     p.drawLine( m_start_x, m_start_y, pixelX, pixelY);
@@ -78,7 +78,7 @@ bool EditModePencil::mouseMoveEvent(QWidget *w,QMouseEvent *event)
                 if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
                     if ((pixelX!=m_start_x)||(pixelY!=m_start_y)){
                         restore();
-                        QPainter p(m_image);
+                        QPainter p(m_image.get());
                         p.setRenderHint(QPainter::Antialiasing, false);
                         p.setPen(m_foreGroundColor);
                         p.drawLine( m_start_x, m_start_y, pixelX, pixelY);

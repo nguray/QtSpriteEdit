@@ -15,15 +15,15 @@ void EditModeSelect::cutSelectBox()
     QRect srcRect;
     //----------------------------------------------------
     //-- Make a Copy
-    if (m_imageCopy){
-        delete m_imageCopy;
-    }
+    // if (m_imageCopy){
+    //     delete m_imageCopy;
+    // }
     m_selectBox.normalize();
     int w = m_selectBox.m_right - m_selectBox.m_left + 1;
     int h = m_selectBox.m_bottom - m_selectBox.m_top + 1;
-    m_imageCopy = new QImage(w , h, m_image->format());
+    m_imageCopy = std::make_shared<QImage>(w , h, m_image->format());
     m_imageCopy->fill(QColor(0,0,0,0));
-    QPainter painter(m_imageCopy);
+    QPainter painter(m_imageCopy.get());
     srcRect.setCoords(m_selectBox.m_left, m_selectBox.m_top, m_selectBox.m_right, m_selectBox.m_bottom);
     painter.drawImage(QPoint(0,0), *m_image, srcRect);
     painter.end();
@@ -44,15 +44,15 @@ void EditModeSelect::copySelectBox()
 {
     QRect srcRect;
     //----------------------------------------------------
-    if (m_imageCopy){
-        delete m_imageCopy;
-    }
+    // if (m_imageCopy){
+    //     delete m_imageCopy;
+    // }
     m_selectBox.normalize();
     int w = m_selectBox.m_right - m_selectBox.m_left + 1;
     int h = m_selectBox.m_bottom - m_selectBox.m_top + 1;
-    m_imageCopy = new QImage(w , h, m_image->format());
+    m_imageCopy = std::make_shared<QImage>(w , h, m_image->format());
     m_imageCopy->fill(QColor(0,0,0,0));
-    QPainter painter(m_imageCopy);
+    QPainter painter(m_imageCopy.get());
     srcRect.setCoords(m_selectBox.m_left, m_selectBox.m_top, m_selectBox.m_right, m_selectBox.m_bottom);
     painter.drawImage(QPoint(0,0), *m_image, srcRect);
     painter.end();
@@ -73,7 +73,7 @@ void EditModeSelect::pasteSelectBox()
         m_selectBox.m_right = m_selectBox.m_left + m_imageCopy->width()-1;
         m_selectBox.m_bottom = m_selectBox.m_top + m_imageCopy->height()-1;
         m_selectBox.m_mode = 2;
-        QPainter painter(m_image);
+        QPainter painter(m_image.get());
         painter.drawImage(QPoint(m_selectBox.m_left,m_selectBox.m_top), *m_imageCopy);
         painter.end();
     }
@@ -225,7 +225,7 @@ bool EditModeSelect::mouseMoveEvent(QWidget *w,QMouseEvent *event)
                 m_selectBox.rectoreRect();
                 m_selectBox.offSet(dx,dy);
                 m_selectBox.updateRect(m_cellSize);
-                QPainter painter(m_image);
+                QPainter painter(m_image.get());
                 srcRect.setCoords(m_selectBox.m_left, m_selectBox.m_top, m_selectBox.m_right, m_selectBox.m_bottom);
                 painter.drawImage(QPoint(m_selectBox.m_left,m_selectBox.m_top), *m_imageCopy);
                 painter.end();
