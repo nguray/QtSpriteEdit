@@ -23,7 +23,7 @@ public:
 
     int     m_cellSize;
     int     m_nbCells;
-    std::vector<Sprite *> m_tblSprites;
+    std::vector<std::shared_ptr<Sprite>> m_tblSprites;
     int     m_idSelectedCell;
 
     int     mouseToIndex(QPoint pt);

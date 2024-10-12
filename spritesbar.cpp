@@ -9,9 +9,6 @@ Sprite::Sprite():m_image(NULL),m_fileName("")
 
 Sprite::~Sprite()
 {
-    //if (m_image){
-    //    delete m_image;
-    //}
 }
 
 spritesbar::spritesbar(QWidget *parent)
@@ -23,15 +20,13 @@ spritesbar::spritesbar(QWidget *parent)
     m_nbCells = 8;
     m_idSelectedCell = 0;
 
-    Sprite *spr;
     for (int i=0;i<m_nbCells;i++){
-        if ((spr=new Sprite())!=NULL){
+        auto spr = std::make_shared<Sprite>();
+        if (spr){
             spr->m_image = std::make_shared<QImage>(32,32,QImage::Format_ARGB32);
             if (spr->m_image!=NULL){
                 spr->m_image->fill(QColor(0,0,0,0));
                 m_tblSprites.push_back(spr);
-            }else{
-                delete spr;
             }
         }
     }
@@ -40,12 +35,7 @@ spritesbar::spritesbar(QWidget *parent)
 
 spritesbar::~spritesbar()
 {
-    // for (auto img : m_tblSprites){
-    //     if (img){
-    //         delete img;
-    //     }
-    // }
-    // m_tblSprites.clear();
+
 }
 
 void spritesbar::refreshDisplay()
