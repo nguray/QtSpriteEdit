@@ -1,6 +1,9 @@
 #include "spritesbar.h"
 #include <QPainter>
 #include <QMouseEvent>
+#include "newspritedialog.h"
+#include <iostream>
+
 
 Sprite::Sprite():m_image(NULL),m_fileName("")
 {
@@ -72,6 +75,16 @@ void spritesbar::mousePressEvent(QMouseEvent *event)
 {
     QPoint pt = event->pos();
     if (event->button()==Qt::LeftButton) {
+
+        // NewSpriteDialog dlg(this);
+        // auto res = dlg.exec();
+
+        // if (res==QDialog::Accepted){
+        //     auto w = dlg.m_width;
+        //     auto h = dlg.m_height;
+        //     std::cout << "width: " << w << std::endl;
+        // }
+
         int id = mouseToIndex(pt);
         if (id!=-1){
             m_idSelectedCell = id;

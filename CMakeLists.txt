@@ -53,6 +53,8 @@ else()
         add_executable(QtSpriteEdit
             ${PROJECT_SOURCES}
             qtspriteedit.qrc
+
+            newspritedialog.h newspritedialog.cpp newspritedialog.ui
         )
     endif()
 endif()
