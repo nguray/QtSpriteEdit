@@ -176,6 +176,7 @@ void editarea::pasteSelectBox() {
 void editarea::doUndo() {
     //-----------------------------------
     m_editMode->restoreState();
+    emit editImageChanged(m_editMode->m_image);
     update();
 }
 

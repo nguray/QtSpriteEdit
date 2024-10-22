@@ -13,7 +13,8 @@
 #include <QVBoxLayout>
 
 
-MainWindow::MainWindow(QWidget *parent) : QMainWindow{parent} {
+MainWindow::MainWindow(QWidget *parent) : QMainWindow{parent}
+{
 
   m_statusBar = this->statusBar();
 
@@ -45,6 +46,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow{parent} {
 
   connect(m_editarea, &editarea::editSpriteChanged, m_spritesbar,
           &spritesbar::refreshDisplay);
+
+  connect(m_editarea, &editarea::editImageChanged, m_spritesbar,
+          &spritesbar::setCurrentImage);
 
   connect(m_editarea, &editarea::pickImageColor, m_colorsbar,
           &colorsbar::setForeGroundColor);
@@ -207,13 +211,12 @@ void MainWindow::saveAs() {
 void MainWindow::about() {
   //-----------------------------------------
   AboutDlg dlg(this);
-  auto result = dlg.exec();
+  dlg.exec();
 }
 
 void MainWindow::undo() {
     //-----------------------------------------
     m_editarea->doUndo();
-    m_spritesbar->setSelectedSprite(m_editarea->getEditImage());
 }
 
 void MainWindow::createToolBar() {

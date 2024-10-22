@@ -46,6 +46,15 @@ void spritesbar::refreshDisplay()
     update();
 }
 
+void spritesbar::setCurrentImage(std::shared_ptr<QImage> img)
+{
+    //------------------------------------------------------
+    if ((m_idSelectedCell>=0)&&(m_idSelectedCell<m_nbCells)){
+        m_tblSprites[m_idSelectedCell]->m_image = img;
+        update();
+    }
+}
+
 int spritesbar::mouseToIndex(QPoint pt)
 {
     int id = pt.y()/m_cellSize;

@@ -48,6 +48,7 @@ public:
 signals:
     void editSpriteChanged();
     void pickImageColor(QColor c);
+    void editImageChanged(std::shared_ptr<QImage> image);
 
 public slots:
     void setForeGroundColor(QColor newColor);
