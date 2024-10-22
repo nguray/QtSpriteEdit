@@ -28,6 +28,7 @@ public:
 
     int     mouseToIndex(QPoint pt);
     std::shared_ptr<QImage> getSelectedSprite();
+    void    setSelectedSprite(std::shared_ptr<QImage> newImage);
     QString getSelectedSpriteFileName();
     void    newImage(int imgWidth, int imgHeight);
     void    openImage(QString fileName);

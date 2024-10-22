@@ -41,6 +41,8 @@ public:
     void setRectangleMode();
     void setEllipseMode();
     void setFloodFillMode();
+    void doUndo();
+    std::shared_ptr<QImage> getEditImage();
 
 
 signals:

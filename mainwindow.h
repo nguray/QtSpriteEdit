@@ -31,6 +31,7 @@ public:
     void        save();
     void        saveAs();
     void        about();
+    void        undo();
 
 
 private slots:

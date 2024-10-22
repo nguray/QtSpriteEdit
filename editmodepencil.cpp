@@ -12,7 +12,7 @@ EditModePencil::EditModePencil()
 void EditModePencil::paintEvent(QWidget *w,QPainter &painter)
 {
     // if (m_image){
-    //      painter.drawImage(QPoint(200,200),*m_imageBackup);
+    //      painter.drawImage(QPoint(200,200),*m_image);
     // }
 }
 
@@ -23,7 +23,7 @@ bool EditModePencil::mousePressEvent(QWidget *w,QMouseEvent *event)
         QTransform trans = m_transform_scale * m_transform_translate;
         QPoint pt = trans.map(event->pos());
         if (m_image){
-            backup();
+            saveState();
             if (QApplication::keyboardModifiers() & Qt::ControlModifier){
                 if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
                     restore();

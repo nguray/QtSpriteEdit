@@ -55,6 +55,7 @@ else()
             qtspriteedit.qrc
 
             newspritedialog.h newspritedialog.cpp newspritedialog.ui
+            newsprite2dialog.h newsprite2dialog.cpp newsprite2dialog.ui
         )
     endif()
 endif()

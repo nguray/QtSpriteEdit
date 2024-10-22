@@ -173,6 +173,18 @@ void editarea::pasteSelectBox() {
   update();
 }
 
+void editarea::doUndo() {
+    //-----------------------------------
+    m_editMode->restoreState();
+    update();
+}
+
+std::shared_ptr<QImage> editarea::getEditImage()
+{
+    //-----------------------------------
+    return m_editMode->m_image;
+}
+
 void editarea::mousePressEvent(QMouseEvent *event) {
   setFocus();
   if (event->button() == Qt::MiddleButton) {

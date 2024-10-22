@@ -4,7 +4,7 @@
 #include <QImage>
 #include <QWidget>
 #include <memory>
-
+#include <vector>
 
 class EditMode {
 public:
@@ -21,6 +21,9 @@ public:
   static std::shared_ptr<QImage> m_imageBackup;
   static std::shared_ptr<QImage> m_imageCopy;
 
+  static std::vector<std::shared_ptr<QImage>> m_states;
+
+
   EditMode();
   ~EditMode();
 
@@ -28,6 +31,9 @@ public:
   bool pixelToMouse(int pixelX, int pixelY, int &mouseX, int &mouseY);
   void backup();
   void restore();
+
+  void saveState();
+  void restoreState();
 
   virtual void paintEvent(QWidget *w, QPainter &painter) = 0;
   virtual bool mousePressEvent(QWidget *w, QMouseEvent *event) = 0;

@@ -1,7 +1,7 @@
 #include "spritesbar.h"
 #include <QPainter>
 #include <QMouseEvent>
-#include "newspritedialog.h"
+#include "newsprite2dialog.h"
 #include <iostream>
 
 
@@ -63,6 +63,15 @@ std::shared_ptr<QImage> spritesbar::getSelectedSprite()
     return NULL;
 }
 
+void spritesbar::setSelectedSprite(std::shared_ptr<QImage> newImage)
+{
+    if ((m_idSelectedCell>=0)&&(m_idSelectedCell<m_nbCells)){
+        m_tblSprites[m_idSelectedCell]->m_image = newImage;
+        update();
+    }
+}
+
+
 QString spritesbar::getSelectedSpriteFileName()
 {
     if ((m_idSelectedCell>=0)&&(m_idSelectedCell<m_nbCells)){
@@ -76,7 +85,7 @@ void spritesbar::mousePressEvent(QMouseEvent *event)
     QPoint pt = event->pos();
     if (event->button()==Qt::LeftButton) {
 
-        // NewSpriteDialog dlg(this);
+        // NewSprite2Dialog dlg(this);
         // auto res = dlg.exec();
 
         // if (res==QDialog::Accepted){

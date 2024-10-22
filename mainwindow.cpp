@@ -105,7 +105,10 @@ void MainWindow::setPencilMode()
 \*---------------------------------------------------------*/
 {
   uncheckAllToolBarButtons();
-  pencilModeAct->setChecked(true);
+  pencilModeAct->setChecked(true)    // if (m_image){
+      //      painter.drawImage(QPoint(200,200),*m_image);
+      // }
+;
   m_editarea->setPencilMode();
 }
 
@@ -207,6 +210,12 @@ void MainWindow::about() {
   auto result = dlg.exec();
 }
 
+void MainWindow::undo() {
+    //-----------------------------------------
+    m_editarea->doUndo();
+    m_spritesbar->setSelectedSprite(m_editarea->getEditImage());
+}
+
 void MainWindow::createToolBar() {
   m_toolBar = new QToolBar("Test ToolBar");
   m_toolBar->setIconSize(QSize(24, 24));
@@ -262,7 +271,7 @@ void MainWindow::createActions() {
 
   undoAct = new QAction(QIcon(":res/edit-undo-symbolic.svg"), tr("Undo"), this);
   undoAct->setShortcuts(QKeySequence::Undo);
-  // connect(undoAct, &QAction::triggered, this, &MainWindow::undo);
+  connect(undoAct, &QAction::triggered, this, &MainWindow::undo);
 
   cutAct = new QAction(QIcon(":res/edit-cut-symbolic.svg"), tr("Cut"), this);
   cutAct->setShortcuts(QKeySequence::Cut);
