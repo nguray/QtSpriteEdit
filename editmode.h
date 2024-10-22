@@ -29,11 +29,10 @@ public:
 
   bool mouseToPixel(int mx, int my, int &pixelX, int &pixelY);
   bool pixelToMouse(int pixelX, int pixelY, int &mouseX, int &mouseY);
-  void backup();
-  void restore();
 
   void saveState();
   void restoreState();
+  void restoreStartState();
 
   virtual void paintEvent(QWidget *w, QPainter &painter) = 0;
   virtual bool mousePressEvent(QWidget *w, QMouseEvent *event) = 0;

@@ -66,7 +66,7 @@ void EditModeSelect::pasteSelectBox()
 {
     //----------------------------------------------------
     if (m_imageCopy){
-        backup();
+        saveState();
         //-- Put in the middle of the edit area
         m_selectBox.m_left = (m_image->width()-m_imageCopy->width())/2;
         m_selectBox.m_top = (m_image->height()-m_imageCopy->height())/2;
@@ -218,7 +218,7 @@ bool EditModeSelect::mouseMoveEvent(QWidget *w,QMouseEvent *event)
         }else if (m_selectBox.m_mode==2){
             QRect   srcRect;
             mouseToPixel( pt.x(), pt.y(), pixelX, pixelY);
-            restore();
+            restoreStartState();
             int dx = (pixelX - m_startPixX);
             int dy = (pixelY - m_startPixY);
             if (dx||dy){

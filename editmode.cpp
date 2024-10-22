@@ -3,7 +3,6 @@
 #include <QColor>
 #include <QPainter>
 
-
 QColor EditMode::m_foreGroundColor = QColor(0, 0, 0);
 QColor EditMode::m_backGroundColor = QColor(0, 0, 0, 0);
 int EditMode::m_pixWidth = 32;
@@ -60,36 +59,6 @@ bool EditMode::pixelToMouse(int pixelX, int pixelY, int &mouseX, int &mouseY)
   return true;
 }
 
-void EditMode::backup() {
-  if (m_imageBackup && m_image) {
-    m_imageBackup->fill(QColor(0, 0, 0, 0));
-    // for(int y=0;y<m_image->height();y++){
-    //     for(int x=0;x<m_image->width();x++){
-    //         QColor c = m_image->pixelColor(x,y);
-    //         m_imageBackup->setPixelColor(x,y,c);
-    //     }
-    // }
-    QPainter painter(m_imageBackup.get());
-    painter.drawImage(QPoint(0, 0), *m_image);
-    painter.end();
-  }
-}
-
-void EditMode::restore() {
-  if (m_imageBackup && m_image) {
-    m_image->fill(QColor(0, 0, 0, 0));
-    // for(int y=0;y<m_image->height();y++){
-    //     for(int x=0;x<m_image->width();x++){
-    //         QColor c = m_imageBackup->pixelColor(x,y);
-    //         m_image->setPixelColor(x,y,c);
-    //     }
-    // }
-    QPainter painter(m_image.get());
-    painter.drawImage(QPoint(0, 0), *m_imageBackup);
-    painter.end();
-  }
-}
-
 void EditMode::saveState()
 {
     //---------------------------------------------------------
@@ -100,7 +69,6 @@ void EditMode::saveState()
     painter.drawImage(QPoint(0, 0), *m_image);
     painter.end();
     m_states.push_back(img);
-
 
 }
 
@@ -126,6 +94,20 @@ void EditMode::restoreState()
         m_image->fill(QColor(0, 0, 0, 0));
         QPainter painter(m_image.get());
         painter.drawImage(QPoint(0, 0), *oldSprite);
+        painter.end();
+
+    }
+
+}
+
+void EditMode::restoreStartState()
+{
+    if (m_states.size()){
+
+        auto lastImageOnStack = m_states.back();
+        m_image->fill(QColor(0, 0, 0, 0));
+        QPainter painter(m_image.get());
+        painter.drawImage(QPoint(0, 0), *lastImageOnStack);
         painter.end();
 
     }

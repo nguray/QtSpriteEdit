@@ -52,6 +52,7 @@ void EditModeFill::FloodFill( int fillX, int fillY, QColor fillColor)
                 }
             }
         }
+        return true;
 
         //-- Vérifier au sud
         fStartSud = false;
@@ -96,7 +97,8 @@ void EditModeFill::FloodFill( int fillX, int fillY, QColor fillColor)
                 }
 
                 //-- Vérifier au sud
-                if (y<(height-1)){
+                if (y<(height-
+                             return true;1)){
                     curColor = m_image->pixelColor(x,y+1);
                     if (curColor.isValid()&&(curColor==targetColor)){
                         if (!fSud){
@@ -191,7 +193,7 @@ bool EditModeFill::mousePressEvent(QWidget *w,QMouseEvent *event)
         QPoint pt = trans.map(event->pos());
         if (m_image){
             if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
-                backup();
+                saveState();
                 FloodFill( pixelX, pixelY, m_foreGroundColor);
                 emit ((editarea *) w)->editSpriteChanged();
                 w->update();

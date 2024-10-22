@@ -51,7 +51,7 @@ bool EditModeEllipse::mousePressEvent(QWidget *w,QMouseEvent *event)
                     m_selectBox.m_top = m_startPt.y();
                     m_selectBox.m_right = m_endPt.x();
                     m_selectBox.m_bottom = m_endPt.y();
-                    backup();
+                    saveState();
                     w->update();
                     return true;
                 }
@@ -66,7 +66,7 @@ bool EditModeEllipse::mousePressEvent(QWidget *w,QMouseEvent *event)
                 m_selectBox.m_top = m_startPt.y();
                 m_selectBox.m_right = m_endPt.x();
                 m_selectBox.m_bottom = m_endPt.y();
-                backup();
+                saveState();
                 w->update();
                 return true;
             }
@@ -166,7 +166,7 @@ bool EditModeEllipse::mouseMoveEvent(QWidget *w,QMouseEvent *event)
 
         if (fDraw){
             //-- Draw Rectangle
-            restore();
+            restoreStartState();
             drawEllipse( m_selectBox.m_left, m_selectBox.m_top, m_selectBox.m_right, m_selectBox.m_bottom);
             emit ((editarea *) w)->editSpriteChanged();
             w->update();
