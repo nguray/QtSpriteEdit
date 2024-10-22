@@ -40,6 +40,7 @@ signals:
 
 public slots:
     void refreshDisplay();
+    void setCurrentImage(std::shared_ptr<QImage> img);
 
     // QWidget interface
 protected:
