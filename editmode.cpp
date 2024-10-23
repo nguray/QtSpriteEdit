@@ -24,7 +24,9 @@ std::shared_ptr<QImage> EditMode::m_imageBackup = std::make_shared<QImage>(
 std::shared_ptr<QImage> EditMode::m_imageCopy = std::make_shared<QImage>(
     EditMode::m_pixWidth, EditMode::m_pixHeight, QImage::Format_ARGB32);
 
-std::vector<std::shared_ptr<QImage>> EditMode::m_states;
+std::shared_ptr<QImage> EditMode::m_imageStart = std::make_shared<QImage>(
+    EditMode::m_pixWidth, EditMode::m_pixHeight, QImage::Format_ARGB32);
+
 
 EditMode::EditMode() {}
 
@@ -59,57 +61,28 @@ bool EditMode::pixelToMouse(int pixelX, int pixelY, int &mouseX, int &mouseY)
   return true;
 }
 
-void EditMode::saveState()
+void EditMode::saveStartState()
 {
     //---------------------------------------------------------
-    auto img = std::make_shared<QImage>(
+    if (m_imageStart==nullptr){
+        m_imageStart = std::make_shared<QImage>(
         EditMode::m_pixWidth, EditMode::m_pixHeight, QImage::Format_ARGB32);
-    img->fill(QColor(0, 0, 0, 0));
-    QPainter painter(img.get());
+    }
+    m_imageStart->fill(QColor(0, 0, 0, 0));
+    QPainter painter(m_imageStart.get());
     painter.drawImage(QPoint(0, 0), *m_image);
     painter.end();
-    m_states.push_back(img);
-
-}
-
-void EditMode::restoreState()
-{
-    //---------------------------------------------------------
-    if (m_states.size()){
-
-        auto oldSprite = m_states.back();
-        m_states.pop_back();
-
-        auto oldWidth = oldSprite->width();
-        auto oldHeight = oldSprite->height();
-        auto curWidth = m_image->width();
-        auto curHeight = m_image->height();
-
-        if ((oldWidth!=curWidth)||(oldHeight!=curHeight)){
-            EditMode::m_pixWidth = oldWidth;
-            EditMode::m_pixHeight = oldHeight;
-            m_image = std::make_shared<QImage>(
-                EditMode::m_pixWidth, EditMode::m_pixHeight, QImage::Format_ARGB32);
-        }
-        m_image->fill(QColor(0, 0, 0, 0));
-        QPainter painter(m_image.get());
-        painter.drawImage(QPoint(0, 0), *oldSprite);
-        painter.end();
-
-    }
 
 }
 
 void EditMode::restoreStartState()
 {
-    if (m_states.size()){
-
-        auto lastImageOnStack = m_states.back();
+    //---------------------------------------------------------
+    if (m_imageStart){
         m_image->fill(QColor(0, 0, 0, 0));
         QPainter painter(m_image.get());
-        painter.drawImage(QPoint(0, 0), *lastImageOnStack);
+        painter.drawImage(QPoint(0, 0), *m_imageStart);
         painter.end();
-
     }
 
 }

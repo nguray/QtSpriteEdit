@@ -12,6 +12,7 @@ Sprite::Sprite():m_image(NULL),m_fileName("")
 
 Sprite::~Sprite()
 {
+    m_states.clear();
 }
 
 spritesbar::spritesbar(QWidget *parent)
@@ -89,6 +90,39 @@ QString spritesbar::getSelectedSpriteFileName()
     return "";
 }
 
+void spritesbar::saveCurSpriteState()
+{
+    //-------------------------------------------------------
+    if ((m_idSelectedCell>=0)&&(m_idSelectedCell<m_nbCells)){
+        auto curImage = m_tblSprites[m_idSelectedCell]->m_image;
+        auto img = std::make_shared<QImage>(
+            curImage->width(), curImage->height(), QImage::Format_ARGB32);
+        img->fill(QColor(0, 0, 0, 0));
+        QPainter painter(img.get());
+        painter.drawImage(QPoint(0, 0), *curImage);
+        painter.end();
+        m_tblSprites[m_idSelectedCell]->m_states.push_back(img);
+
+    }
+
+}
+
+void spritesbar::restoreCurSpriteState()
+{
+    //-------------------------------------------------------
+    if ((m_idSelectedCell>=0)&&(m_idSelectedCell<m_nbCells)){
+        auto curSpr = m_tblSprites[m_idSelectedCell];
+        if (curSpr->m_states.size()){
+            auto oldSprite = curSpr->m_states.back();
+            curSpr->m_states.pop_back();
+            curSpr->m_image = oldSprite;
+            emit selectSpriteChanged(curSpr->m_image);
+            update();
+        }
+    }
+
+}
+
 void spritesbar::mousePressEvent(QMouseEvent *event)
 {
     QPoint pt = event->pos();
@@ -158,7 +192,6 @@ void spritesbar::saveAsImage(const QString fileName, const char *fileFormat)
     }
 
 }
-
 
 void spritesbar::paintEvent(QPaintEvent *event)
 {

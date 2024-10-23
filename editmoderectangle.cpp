@@ -1,9 +1,16 @@
 #include "editmoderectangle.h"
 #include "editarea.h"
 #include <QMouseEvent>
+#include <iostream>
 
 EditModeRectangle::EditModeRectangle()
 {
+
+}
+
+void EditModeRectangle::initMode()
+{
+    m_selectBox.reset();
 
 }
 
@@ -19,10 +26,11 @@ void EditModeRectangle::paintEvent(QWidget *w,QPainter &painter)
     //                               0,
     //                               m_pixWidth*m_cellSize+2, m_pixHeight*m_cellSize+2,
     //                               QRegion::Rectangle));
-
     //--
-    m_selectBox.draw(&painter);
-
+    if ((m_selectBox.m_left!=m_selectBox.m_right)&&
+        (m_selectBox.m_top!=m_selectBox.m_bottom)){
+        m_selectBox.draw(&painter);
+    }
 }
 
 bool EditModeRectangle::mousePressEvent(QWidget *w,QMouseEvent *event)
@@ -31,7 +39,27 @@ bool EditModeRectangle::mousePressEvent(QWidget *w,QMouseEvent *event)
         int pixelX,pixelY;
         QTransform trans = m_transform_scale * m_transform_translate;
         QPoint pt = trans.map(event->pos());
-        if (m_selectBox.m_mode){
+
+        switch(m_selectBox.m_mode){
+        case 0:
+            if (mouseToPixel( pt.x(), pt.
+                                     y(), pixelX, pixelY)){
+                m_startPt = QPoint(pixelX,pixelY);
+                m_endPt   = m_startPt;
+                m_selectBox.reset();
+                m_selectBox.m_left = m_startPt.x();
+                m_selectBox.m_top = m_startPt.y();
+                m_selectBox.m_right = m_endPt.x();
+                m_selectBox.m_bottom = m_endPt.y();
+                //
+                saveStartState();
+                emit ((editarea *) w)->saveImageState();
+                //std::cout << "saveImageState>>" << std::endl;
+                w->update();
+                return true;
+            }
+            break;
+        case 1:
             if (m_selectBox.hitHandle(pt)){
                 mouseToPixel( pt.x(), pt.y(), pixelX, pixelY);
                 m_startPixX = pixelX;
@@ -44,33 +72,19 @@ bool EditModeRectangle::mousePressEvent(QWidget *w,QMouseEvent *event)
             }else{
                 if (mouseToPixel( pt.x(), pt.
                                          y(), pixelX, pixelY)){
-                    m_startPt = QPoint(pixelX,pixelY);
-                    m_endPt = m_startPt;
+                    m_startPt  = QPoint(pixelX,pixelY);
+                    m_endPt    = m_startPt;
                     m_selectBox.reset();
-                    m_selectBox.m_left = m_startPt.x();
-                    m_selectBox.m_top = m_startPt.y();
-                    m_selectBox.m_right = m_endPt.x();
-                    m_selectBox.m_bottom = m_endPt.y();
-                    saveState();
+                    m_selectBox.m_mode = 2;
                     w->update();
                     return true;
                 }
             }
-        }else{
-            if (mouseToPixel( pt.x(), pt.
-                                     y(), pixelX, pixelY)){
-                m_startPt = QPoint(pixelX,pixelY);
-                m_endPt = m_startPt;
-                m_selectBox.reset();
-                m_selectBox.m_left = m_startPt.x();
-                m_selectBox.m_top = m_startPt.y();
-                m_selectBox.m_right = m_endPt.x();
-                m_selectBox.m_bottom = m_endPt.y();
-                saveState();
-                w->update();
-                return true;
-            }
+            break;
+        default:
+            break;
         }
+
     }
     return false;
 
@@ -79,11 +93,16 @@ bool EditModeRectangle::mousePressEvent(QWidget *w,QMouseEvent *event)
 bool EditModeRectangle::mouseReleaseEvent(QWidget *w,QMouseEvent *event)
 {
     if (event->button()==Qt::LeftButton) {
-        if (!m_selectBox.isNull()){
-            m_selectBox.backupRect();
-            m_selectBox.m_mode = 1;
-            w->update();
-            return true;
+        if (m_selectBox.m_mode==2){
+            m_selectBox.reset();
+        }else{
+            if ((m_selectBox.m_left!=m_selectBox.m_right)&&
+                (m_selectBox.m_top!=m_selectBox.m_bottom)){
+                m_selectBox.backupRect();
+                m_selectBox.m_mode = 1;
+                w->update();
+                return true;
+            }
         }
     }
     return false;
@@ -104,7 +123,6 @@ void EditModeRectangle::drawRectangle(int l,int t,int r,int b)
     p.end();
 }
 
-
 bool EditModeRectangle::mouseMoveEvent(QWidget *w,QMouseEvent *event)
 {
     //--------------------------------------------------------
@@ -113,31 +131,9 @@ bool EditModeRectangle::mouseMoveEvent(QWidget *w,QMouseEvent *event)
         bool    fDraw=false;
         QTransform trans = m_transform_scale * m_transform_translate;
         QPoint pt = trans.map(event->pos());
-        if (m_selectBox.m_mode){
-            if (m_selectBox.m_idHandle!=-1){
-                mouseToPixel( pt.x(), pt.y(), pixelX, pixelY);
-                m_selectBox.backupRect();
-                m_selectBox.setSelectedHandle(pixelX,pixelY);
-                if ((m_selectBox.widthPix()<2)||(m_selectBox.heightPix()<2)){
-                    m_selectBox.rectoreRect();
-                }
-                m_selectBox.updateRect(m_cellSize);
-                //-- Draw Rectangle
-                fDraw = true;
-            }else{
-                mouseToPixel( pt.x(), pt.y(), pixelX, pixelY);
-                int dx = (pixelX - m_startPixX);
-                int dy = (pixelY - m_startPixY);
-                if (dx||dy){
-                    m_selectBox.rectoreRect();
-                    m_selectBox.offSet(dx,dy);
-                    m_selectBox.updateRect(m_cellSize);
-                    //-- Draw Rectangle
-                    fDraw = true;
-                }
 
-            }
-        }else{
+        switch(m_selectBox.m_mode){
+        case 0:
             if (mouseToPixel( pt.x(), pt.y(), pixelX, pixelY)){
                 m_endPt = QPoint(pixelX,pixelY);
                 int left = m_startPt.x();
@@ -162,7 +158,37 @@ bool EditModeRectangle::mouseMoveEvent(QWidget *w,QMouseEvent *event)
 
                 //-- Draw Rectangle
                 fDraw = true;
+                std::cout << "(" <<left << "," << top << ") (" << right << ","  << bottom << ")" << std::endl;
+
             }
+            break;
+        case 1:
+            if (m_selectBox.m_idHandle!=-1){
+                mouseToPixel( pt.x(), pt.y(), pixelX, pixelY);
+                m_selectBox.backupRect();
+                m_selectBox.setSelectedHandle(pixelX,pixelY);
+                if ((m_selectBox.widthPix()<2)||(m_selectBox.heightPix()<2)){
+                    m_selectBox.rectoreRect();
+                }
+                m_selectBox.updateRect(m_cellSize);
+                //-- Draw Rectangle
+                fDraw = true;
+            }else{
+                mouseToPixel( pt.x(), pt.y(), pixelX, pixelY);
+                int dx = (pixelX - m_startPixX);
+                int dy = (pixelY - m_startPixY);
+                if (dx||dy){
+                    m_selectBox.rectoreRect();
+                    m_selectBox.offSet(dx,dy);
+                    m_selectBox.updateRect(m_cellSize);
+                    //-- Draw Rectangle
+                    fDraw = true;
+                }
+            }
+            break;
+        default:
+
+            break;
         }
 
         if (fDraw){

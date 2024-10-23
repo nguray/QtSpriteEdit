@@ -21,7 +21,9 @@ public:
   static std::shared_ptr<QImage> m_imageBackup;
   static std::shared_ptr<QImage> m_imageCopy;
 
-  static std::vector<std::shared_ptr<QImage>> m_states;
+  static std::shared_ptr<QImage> m_imageStart;
+
+//  static std::vector<std::shared_ptr<QImage>> m_states;
 
 
   EditMode();
@@ -30,8 +32,9 @@ public:
   bool mouseToPixel(int mx, int my, int &pixelX, int &pixelY);
   bool pixelToMouse(int pixelX, int pixelY, int &mouseX, int &mouseY);
 
-  void saveState();
-  void restoreState();
+//  void saveState();
+//  void restoreState();
+  void saveStartState();
   void restoreStartState();
 
   virtual void paintEvent(QWidget *w, QPainter &painter) = 0;
@@ -40,6 +43,8 @@ public:
   virtual bool mouseDoubleClickEvent(QWidget *w, QMouseEvent *event) = 0;
   virtual bool mouseMoveEvent(QWidget *w, QMouseEvent *event) = 0;
   virtual void resizeEvent(QWidget *w, QResizeEvent *event) = 0;
+  virtual void initMode() = 0;
+
 };
 
 #endif // EDITMODE_H

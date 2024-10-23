@@ -50,6 +50,12 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow{parent}
   connect(m_editarea, &editarea::editImageChanged, m_spritesbar,
           &spritesbar::setCurrentImage);
 
+  connect(m_editarea, &editarea::saveImageState, m_spritesbar,
+          &spritesbar::saveCurSpriteState);
+
+  connect(m_editarea, &editarea::restoreImageState, m_spritesbar,
+          &spritesbar::restoreCurSpriteState);
+
   connect(m_editarea, &editarea::pickImageColor, m_colorsbar,
           &colorsbar::setForeGroundColor);
 

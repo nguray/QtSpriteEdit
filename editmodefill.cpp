@@ -6,6 +6,10 @@
 
 EditModeFill::EditModeFill() {}
 
+void EditModeFill::initMode(){
+
+}
+
 void EditModeFill::FloodFill(int fillX, int fillY, QColor fillColor) {
   int width, height;
   QColor targetColor, curColor;
@@ -184,7 +188,7 @@ bool EditModeFill::mousePressEvent(QWidget *w, QMouseEvent *event) {
     QPoint pt = trans.map(event->pos());
     if (m_image) {
       if (mouseToPixel(pt.x(), pt.y(), pixelX, pixelY)) {
-        saveState();
+        emit ((editarea *) w)->saveImageState();
         FloodFill(pixelX, pixelY, m_foreGroundColor);
         emit((editarea *)w)->editSpriteChanged();
         w->update();

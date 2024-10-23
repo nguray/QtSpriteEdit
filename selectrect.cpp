@@ -8,7 +8,7 @@ Handle::Handle(int *ptr_x, int *ptr_y):QRect{},m_x(ptr_x),m_y(ptr_y)
 {
 }
 
-SelectRect::SelectRect():QRect{},m_mode(0),m_idHandle(-1)
+SelectRect::SelectRect():QRect{0,0,0,0},m_mode(0),m_idHandle(-1)
 {
     m_Corners[TOP_LEFT] = Handle(&m_left,&m_top);
     m_Corners[TOP_RIGHT] = Handle(&m_right,&m_top);
@@ -59,7 +59,7 @@ void SelectRect::reset()
     m_right = 0;
     m_top = 0;
     m_bottom = 0;
-    setCoords(-100,-100,-100,-100);
+    setCoords(0,0,0,0);
     for(int i=0;i<CORNER_END;i++){
         m_Corners[i].setRect(0,0,0,0);
     }

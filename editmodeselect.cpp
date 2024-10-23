@@ -10,14 +10,17 @@ EditModeSelect::EditModeSelect():EditMode{}
 
 }
 
+void EditModeSelect::initMode()
+{
+    m_selectBox.reset();
+
+}
+
+
 void EditModeSelect::cutSelectBox()
 {
     QRect srcRect;
     //----------------------------------------------------
-    //-- Make a Copy
-    // if (m_imageCopy){
-    //     delete m_imageCopy;
-    // }
     m_selectBox.normalize();
     int w = m_selectBox.m_right - m_selectBox.m_left + 1;
     int h = m_selectBox.m_bottom - m_selectBox.m_top + 1;
@@ -66,7 +69,7 @@ void EditModeSelect::pasteSelectBox()
 {
     //----------------------------------------------------
     if (m_imageCopy){
-        saveState();
+        saveStartState();
         //-- Put in the middle of the edit area
         m_selectBox.m_left = (m_image->width()-m_imageCopy->width())/2;
         m_selectBox.m_top = (m_image->height()-m_imageCopy->height())/2;
@@ -99,6 +102,7 @@ void EditModeSelect::paintEvent(QWidget *w,QPainter &painter)
 
 bool EditModeSelect::mousePressEvent(QWidget *w,QMouseEvent *event)
 {
+    //-----------------------------------
     if (event->button()==Qt::LeftButton) {
         int pixelX,pixelY;
         QTransform trans = m_transform_scale * m_transform_translate;
@@ -168,6 +172,7 @@ bool EditModeSelect::mousePressEvent(QWidget *w,QMouseEvent *event)
 
 bool EditModeSelect::mouseReleaseEvent(QWidget *w,QMouseEvent *event)
 {
+    //-----------------------------------
     if (event->button()==Qt::LeftButton){
         if (m_selectBox.m_mode==0){
             if (!m_selectBox.isNull()){
@@ -188,6 +193,7 @@ bool EditModeSelect::mouseDoubleClickEvent(QWidget *w,QMouseEvent *event)
 
 bool EditModeSelect::mouseMoveEvent(QWidget *w,QMouseEvent *event)
 {
+    //-----------------------------------
     if (event->buttons() & Qt::LeftButton) {
         int pixelX,pixelY;
         QTransform trans = m_transform_scale * m_transform_translate;

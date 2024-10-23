@@ -31,6 +31,7 @@ void editarea::setEditSprite(std::shared_ptr<QImage> sprite) {
     m_editMode->m_image = sprite;
     m_editMode->m_imageBackup = std::make_shared<QImage>(sprite->width(), sprite->height(), sprite->format());
     m_editMode->m_imageBackup->fill(QColor(0, 0, 0, 0));
+    m_editMode->initMode();
     update();
   }
 }
@@ -114,28 +115,33 @@ void editarea::setBackGroundColor(QColor newColor) {
 void editarea::setSelectMode() {
   m_editModeSelect.m_selectBox.reset();
   m_editMode = &m_editModeSelect;
+  m_editMode->initMode();
   update();
 }
 
 void editarea::setPencilMode() {
   m_editMode = &m_editModePencil;
+  m_editMode->initMode();
   update();
 }
 
 void editarea::setRectangleMode() {
   m_editModeRectangle.m_selectBox.reset();
   m_editMode = &m_editModeRectangle;
+  m_editMode->initMode();
   update();
 }
 
 void editarea::setEllipseMode() {
   m_editModeEllipse.m_selectBox.reset();
   m_editMode = &m_editModeEllipse;
+  m_editMode->initMode();
   update();
 }
 
 void editarea::setFloodFillMode() {
   m_editMode = &m_editModeFill;
+  m_editMode->initMode();
   update();
 }
 
@@ -167,6 +173,7 @@ void editarea::pasteSelectBox() {
   if (m_editMode != &m_editModeSelect) {
     setSelectMode();
   }
+  emit saveImageState();
   m_editModeSelect.pasteSelectBox();
   m_editModeSelect.m_selectBox.updateRect(m_editMode->m_cellSize);
   emit editSpriteChanged();
@@ -175,8 +182,8 @@ void editarea::pasteSelectBox() {
 
 void editarea::doUndo() {
     //-----------------------------------
-    m_editMode->restoreState();
-    emit editImageChanged(m_editMode->m_image);
+    emit restoreImageState();
+    m_editMode->initMode();
     update();
 }
 
@@ -187,88 +194,96 @@ std::shared_ptr<QImage> editarea::getEditImage()
 }
 
 void editarea::mousePressEvent(QMouseEvent *event) {
-  setFocus();
-  if (event->button() == Qt::MiddleButton) {
-    m_startX = event->pos().x();
-    m_startY = event->pos().y();
-    m_origin_dx_backup = m_origin_dx;
-    m_origin_dy_backup = m_origin_dy;
+    //-----------------------------------
+    setFocus();
+    if (event->button() == Qt::MiddleButton) {
+        m_startX = event->pos().x();
+        m_startY = event->pos().y();
+        m_origin_dx_backup = m_origin_dx;
+        m_origin_dy_backup = m_origin_dy;
 
-  } else if ((event->button() == Qt::LeftButton) &&
+    } else if ((event->button() == Qt::LeftButton) &&
              (QApplication::keyboardModifiers() & Qt::ShiftModifier)) {
-    //--
-    int pixelX, pixelY;
-    QTransform trans =
-        m_editMode->m_transform_scale * m_editMode->m_transform_translate;
-    QPoint pt = trans.map(event->pos());
-    if (m_editMode->mouseToPixel(pt.x(), pt.y(), pixelX, pixelY)) {
-      QColor pickColor = m_editMode->m_image->pixelColor(pixelX, pixelY);
-      m_editMode->m_foreGroundColor = pickColor;
-      emit pickImageColor(pickColor);
-      // update();
-      // event->accept();
+        //--
+        int pixelX, pixelY;
+        QTransform trans =
+            m_editMode->m_transform_scale * m_editMode->m_transform_translate;
+        QPoint pt = trans.map(event->pos());
+        if (m_editMode->mouseToPixel(pt.x(), pt.y(), pixelX, pixelY)) {
+            QColor pickColor = m_editMode->m_image->pixelColor(pixelX, pixelY);
+            m_editMode->m_foreGroundColor = pickColor;
+            emit pickImageColor(pickColor);
+            // update();
+            // event->accept();
+        }
+    } else {
+        m_editMode->mousePressEvent(this, event);
     }
-  } else {
-    m_editMode->mousePressEvent(this, event);
-  }
 }
 
 void editarea::mouseReleaseEvent(QMouseEvent *event) {
-  if (event->button() == Qt::MiddleButton) {
-    m_editMode->m_transform_translate =
-        QTransform::fromTranslate(m_origin_dx, m_origin_dy).inverted();
-  }
-  m_editMode->mouseReleaseEvent(this, event);
+    //-----------------------------------
+    if (event->button() == Qt::MiddleButton) {
+        m_editMode->m_transform_translate =
+            QTransform::fromTranslate(m_origin_dx, m_origin_dy).inverted();
+    }
+    m_editMode->mouseReleaseEvent(this, event);
 }
 
 void editarea::mouseDoubleClickEvent(QMouseEvent *event) {
-  m_editMode->mouseDoubleClickEvent(this, event);
+    //-----------------------------------
+    m_editMode->mouseDoubleClickEvent(this, event);
 }
 
 void editarea::mouseMoveEvent(QMouseEvent *event) {
-  if (event->buttons() & Qt::MiddleButton) {
-    int dx = event->pos().x() - m_startX;
-    int dy = event->pos().y() - m_startY;
-    if (dx || dy) {
-      m_origin_dx = m_origin_dx_backup;
-      m_origin_dy = m_origin_dy_backup;
-      m_origin_dx += dx;
-      m_origin_dy += dy;
-      update();
+    //-----------------------------------
+    if (event->buttons() & Qt::MiddleButton) {
+        int dx = event->pos().x() - m_startX;
+        int dy = event->pos().y() - m_startY;
+        if (dx || dy) {
+            m_origin_dx = m_origin_dx_backup;
+            m_origin_dy = m_origin_dy_backup;
+            m_origin_dx += dx;
+            m_origin_dy += dy;
+            update();
+        }
     }
-  }
-  m_editMode->mouseMoveEvent(this, event);
+    m_editMode->mouseMoveEvent(this, event);
 }
 
 void editarea::wheelEvent(QWheelEvent *event) {
-  QPoint numDegrees = event->angleDelta() / 8;
+    //-----------------------------------
+    QPoint numDegrees = event->angleDelta() / 8;
 
-  if (numDegrees.y() > 0) {
-    m_editMode->m_scale += 0.05f;
-  } else {
-    m_editMode->m_scale -= 0.05f;
-  }
-  m_editMode->m_transform_scale =
+    if (numDegrees.y() > 0) {
+        m_editMode->m_scale += 0.05f;
+    } else {
+        m_editMode->m_scale -= 0.05f;
+    }
+    m_editMode->m_transform_scale =
       QTransform::fromScale(m_editMode->m_scale, m_editMode->m_scale)
-          .inverted();
-  update();
-  event->accept();
+        .inverted();
+    update();
+    event->accept();
 }
 
 void editarea::resizeEvent(QResizeEvent *event) {
-  m_editMode->resizeEvent(this, event);
+    //-----------------------------------
+    m_editMode->resizeEvent(this, event);
 }
 
 void editarea::keyPressEvent(QKeyEvent *event) {
-  if (event->key() == Qt::Key_Shift) {
-    //--
-    setCursor(*m_pickColorCursor);
-  }
+    //-----------------------------------
+    if (event->key() == Qt::Key_Shift) {
+        //--
+        setCursor(*m_pickColorCursor);
+    }
 }
 
 void editarea::keyReleaseEvent(QKeyEvent *event) {
-  if (event->key() == Qt::Key_Shift) {
-    //--
-    setCursor(Qt::ArrowCursor);
-  }
+    //-----------------------------------
+    if (event->key() == Qt::Key_Shift) {
+        //--
+        setCursor(Qt::ArrowCursor);
+    }
 }

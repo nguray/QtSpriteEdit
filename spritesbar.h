@@ -11,6 +11,7 @@ public:
     ~Sprite();
     std::shared_ptr<QImage> m_image;
     QString     m_fileName;
+    std::vector<std::shared_ptr<QImage>> m_states;
 
 };
 
@@ -39,8 +40,10 @@ signals:
     void selectSpriteChanged(std::shared_ptr<QImage> sprite);
 
 public slots:
-    void refreshDisplay();
-    void setCurrentImage(std::shared_ptr<QImage> img);
+    void    saveCurSpriteState();
+    void    restoreCurSpriteState();
+    void    refreshDisplay();
+    void    setCurrentImage(std::shared_ptr<QImage> img);
 
     // QWidget interface
 protected:
